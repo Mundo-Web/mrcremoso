@@ -33,8 +33,9 @@ class GeneralSeeder extends Seeder
             'form_email' => 'usuario@mundoweb.pe',
             'business_hours' => 'horas',
             'mensaje_whatsapp' => 'Hola estamos atentos a lo que ud desee',
-            'htop' =>'Descubre los mejores productos y promociones en Deco Tab',
-            'aboutus' => 'Debo Tab es una empresa reconocida por su innovación y distinción en el mercado peruano. Nuestro equipo ofrece una colección de paneles de piedra cincelada, brindando a tus espacios una sensación de autenticidad y elegancia incomparables. Además, destacamos por la calidad de nuestros UV Mármol, Wall Panel Mix y piedra PU.'
+            'htop' =>'Las mejores ofertas',
+            'aboutus' => '@cremosos',
+            'ig_token' => 'Free delivery',
         ]);
     }
 }

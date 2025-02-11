@@ -414,6 +414,8 @@ class IndexController extends Controller
       $detalleUsuario = UserDetails::where('email', $user->email)->get();
     }
 
+    $general = General::first();
+
     $historicoCupones = [];
 
     if (Auth::check()) {
@@ -487,7 +489,7 @@ class IndexController extends Controller
 
     //$formToken = IzipayController::token($sale);
 
-    return view('public.checkout_pago', compact('user', 'historicoCupones', 'sale', 'url_env', 'districts', 'provinces', 'departments', 'detalleUsuario', 'categorias', 'destacados', 'culqi_public_key', 'addresses', 'hasDefaultAddress'));
+    return view('public.checkout_pago', compact('general', 'user', 'historicoCupones', 'sale', 'url_env', 'districts', 'provinces', 'departments', 'detalleUsuario', 'categorias', 'destacados', 'culqi_public_key', 'addresses', 'hasDefaultAddress'));
   }
 
   public function procesarPago(Request $request)

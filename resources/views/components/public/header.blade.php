@@ -62,19 +62,25 @@
     <div class="left-0 right-0">
 
         <div class=" bg-[#052F4E] z-[1000] relative font-galano_medium text-sm">
-            <div class="flex flex-row justify-between items-center py-3 w-11/12 mx-auto text-white text-sm">
+            <div class="flex flex-wrap justify-between items-center py-3 w-11/12 mx-auto text-white text-sm">
 
-                <div className="flex flex-col justify-center items-center">
-                    <p>@cremosos</p>
-                </div>
+                @if ($datosgenerales[0]->aboutus)
+                    <div className="flex flex-col justify-center items-center">
+                        <p>{{$datosgenerales[0]->aboutus}}</p>
+                    </div>
+                @endif
+                
+                @if ($datosgenerales[0]->htop)
+                    <div className="flex flex-col justify-center items-center">
+                        <p>{{$datosgenerales[0]->htop}}</p>
+                    </div>
+                @endif
 
-                <div className="flex flex-col justify-center items-center">
-                    <p>Las mejores ofertas</p>
-                </div>
-
-                <div className="flex flex-col justify-center items-center">
-                    <p>Free delivery</p>
-                </div>
+                @if ($datosgenerales[0]->ig_token)
+                    <div className="flex flex-col justify-center items-center">
+                        <p>{{$datosgenerales[0]->ig_token}}</p>
+                    </div>
+                @endif
 
             </div>
         </div>
