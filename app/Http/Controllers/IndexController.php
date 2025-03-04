@@ -1595,9 +1595,24 @@ class IndexController extends Controller
 
   public function rse(){
     $testimonie = Testimony::where('status', '=', 1)->where('visible', '=', 1)->get();
-    $rse = Project::all();
+    $rse = Project::where('status', '=', 1)->get();
     $textoshome = HomeView::where('id', 1)->first();
     return view('public.rse', compact('textoshome','rse','testimonie'));
+  }
+
+  public function detallereceta($id){
+    $testimonie = Testimony::where('status', '=', 1)->where('visible', '=', 1)->get();
+    $receta = Project::where('status', '=', 1)->where('id', $id)->first();
+    $textoshome = HomeView::where('id', 1)->first();
+    $url_env = env('APP_URL');
+    $ProdComplementarios = Project::select()
+      ->where('id', '<>', $id)
+      ->where('status', '=', true)
+      ->inRandomOrder()
+      ->take(10)
+      ->get();
+
+    return view('public.detallereceta', compact('textoshome','receta','testimonie', 'url_env', 'ProdComplementarios'));
   }
 
 

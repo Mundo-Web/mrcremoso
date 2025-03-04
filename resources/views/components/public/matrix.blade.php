@@ -140,6 +140,10 @@
             width: 100% !important;
             /* block w-full */
         }
+        
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 
     @include('components.shortcode.contain_head')

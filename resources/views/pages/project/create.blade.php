@@ -13,6 +13,7 @@
         <div class="p-3">
           <div class="rounded shadow-lg p-4 px-4 ">
             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+
               <div class="md:col-span-5">
                 <label for="titulo">Titulo</label>
                 <div class="relative mb-2  mt-2">
@@ -33,6 +34,7 @@
                     placeholder="Titulo">
                 </div>
               </div>
+
               <div class="md:col-span-5">
                 <label for="descripcion">Descripcion</label>
                 <div class="relative mb-2  mt-2">
@@ -41,6 +43,7 @@
                   placeholder="Descripción"></textarea>
                 </div>
               </div>
+
               <div class="md:col-span-5">
                 <label for="imagen">Imagen principal</label>
                 <div class="relative mb-2  mt-2">
@@ -49,6 +52,29 @@
                     aria-describedby="user_avatar_help" id="user_avatar" type="file">
                 </div>
               </div>
+
+              <div class="md:col-span-5">
+                <label for="steps">Pasos de receta</label>
+                <div class="relative mb-2  mt-2">
+                    <textarea type="text" rows="2" id="steps" name="steps"
+                    class="ckeditor mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Ingresa la descripcion de pasos"></textarea>
+                </div>
+              </div>
+
+              <div class="md:col-span-5">
+                <div id="images-container">
+                </div>
+              </div>
+              
+              <div class="md:col-span-5">
+                <button type="button" id="add-image"
+                    class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                    Añadir ingrediente
+                </button>
+              </div>
+
+
               <div class="md:col-span-5 text-right mt-6 flex justify-between">
                 <div class="inline-flex items-end">
                   <a href="{{ route('project.create') }}"  class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded">Volver</a>
@@ -86,6 +112,128 @@
           removePlugins: 'elementspath', // Elimina la ruta de elementos
           resize_enabled: true // Permite redimensionar el editor
       });
+
+      CKEDITOR.replace('steps', {
+        toolbar: [
+            { name: 'document', items: ['Source'] }, // Código fuente
+            { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo'] },
+            { name: 'styles', items: ['Styles', 'Format', 'FontSize'] }, // Tamaño y fuente
+            { name: 'colors', items: ['TextColor', 'BGColor'] }, // Color de texto y fondo
+            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat'] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Blockquote'] },
+            { name: 'insert', items: ['Table', 'HorizontalRule'] },
+            { name: 'links', items: ['Link', 'Unlink'] },
+            { name: 'tools', items: ['Maximize'] } // Maximizar
+        ],
+        extraPlugins: 'colorbutton,font', // Activa plugins para color y fuentes
+        removePlugins: 'elementspath', // Elimina la ruta de elementos
+        resize_enabled: true // Permite redimensionar el editor
+    });
+  </script>
+
+  <script>
+
+    $(document).ready(function () {
+        let ingredientIndex = $(".ingredient-group").length;
+
+        $("#add-image").click(function () {
+            ingredientIndex++;
+
+            let ingredientHtml = `
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-1 md:gap-4 mt-4 ingredient-group">
+                
+                <!-- Título -->
+                <div class="md:col-span-4">
+                    <label for="titulo_${ingredientIndex}">Título</label>
+                    <div class="relative mb-2 mt-2">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <i class="text-lg text-gray-500 dark:text-gray-400 fas fa-heading"></i>
+                        </div>
+                        <input type="text" name="ingredients[${ingredientIndex}][titulo]" id="titulo_${ingredientIndex}" 
+                            class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 
+                            focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 
+                            dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Ingrese el título">
+                    </div>
+                </div>
+                
+                <!-- Imagen -->
+                <div class="md:col-span-5">
+                    <label for="imagen_${ingredientIndex}">Imagen</label>
+                    <div class="relative mb-2 mt-2">
+                        <input type="file" name="ingredients[${ingredientIndex}][imagen]" id="imagen_${ingredientIndex}" 
+                            class=""
+                            accept="image/*">
+                    </div>
+                </div>
+
+                <!-- Botón para eliminar -->
+                <div class="md:col-span-1 flex flex-row justify-start items-center">
+                    <button type="button" class="remove-ingredient text-red-500 hover:text-red-700 pt-2 pr-1">
+                        <i class="fas fa-trash-alt text-xl"></i>
+                    </button>
+                </div>
+            </div>`;
+
+            $("#images-container").append(ingredientHtml);
+        });
+
+        // Eliminar un grupo de ingredientes
+        $(document).on("click", ".remove-ingredient", function () {
+            $(this).closest(".ingredient-group").remove();
+        });
+    });
+
+    // $(document).ready(function () {
+    //   let imageIndex = $(".image-group").length;
+
+    //     $("#add-image").click(function () {
+    //         imageIndex++;
+
+    //         let imageHtml = `
+    //         <div class="grid grid-cols-1 md:grid-cols-12 gap-1 md:gap-4 mt-4 image-group">
+                
+    //             <!-- Título -->
+    //             <div class="md:col-span-4">
+    //                 <label for="titulo_${imageIndex}">Título</label>
+    //                 <div class="relative mb-2 mt-2">
+    //                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+    //                         <i class="text-lg text-gray-500 dark:text-gray-400 fas fa-heading"></i>
+    //                     </div>
+    //                     <input type="text" name="images[${imageIndex}][titulo]" id="titulo_${imageIndex}" 
+    //                         class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 
+    //                         focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 
+    //                         dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    //                         placeholder="Ingrese el título">
+    //                 </div>
+    //             </div>
+                
+    //             <!-- Imagen -->
+    //             <div class="md:col-span-5">
+    //                 <label for="imagen_${imageIndex}">Imagen</label>
+    //                 <div class="relative mb-2 mt-2">
+    //                     <input type="file" name="images[${imageIndex}][imagen]" id="imagen_${imageIndex}" 
+    //                         class=""
+    //                         accept="image/*">
+    //                 </div>
+    //             </div>
+
+    //             <!-- Botón para eliminar -->
+    //             <div class="md:col-span-1 flex flex-row justify-start items-center">
+    //                 <button type="button" class="remove-image text-red-500 hover:text-red-700 pt-2 pr-1">
+    //                     <i class="fas fa-trash-alt text-xl"></i>
+    //                 </button>
+    //             </div>
+    //         </div>`;
+
+    //         $("#images-container").append(imageHtml);
+    //     });
+
+    //     // Eliminar un grupo de imágenes
+    //     $(document).on("click", ".remove-image", function () {
+    //         $(this).closest(".image-group").remove();
+    //     });
+    // });
   </script>
 
 </x-app-layout>

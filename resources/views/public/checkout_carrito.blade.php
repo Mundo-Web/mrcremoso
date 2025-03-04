@@ -329,6 +329,24 @@
   </style>
 
 <script>
+
+  $(document).ready(function() {
+      // Escuchar el evento 'change' en el input con id 'email'
+      const initialEmail = $('#email').val().trim();
+
+      // Verificar si el input ya tiene un correo al cargar la página
+      if (initialEmail) {
+          const email = Local.get('datospersonales') ?? {}
+          Local.set('datospersonales', {
+            ...email,
+            email: initialEmail
+          })
+      
+
+      }
+      
+  })
+
   const isAuthenticated = @json($user);
  
   if (isAuthenticated) {

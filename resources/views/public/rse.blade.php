@@ -45,56 +45,38 @@
     <main>
 
         <section>
-            <img class="w-full object-cover object-center h-[350px] "
-                src="{{ asset('images/imagen/rse.png') }}" />
-        </section>
-
-        <section class="px-[5%] pt-12 xl:pt-16 w-full">
-            <div class="flex flex-col gap-2 max-w-3xl mx-auto">
-                <h2
-                    class="text-[#052F4E] font-maille text-4xl md:text-5xl leading-none text-left lg:text-center max-w-2xl mx-auto">
-                    Nuestras Recetas
-                </h2>
+            <div class="flex flex-col gap-10 w-full px-[5%] pt-10 md:pt-20">
+                <div class="flex flex-col xl:flex-row xl:justify-between items-start xl:items-center gap-5">
+                    <div class="flex flex-col gap-4 max-w-5xl mx-auto text-center">
+                        <h4 class="font-galano_bold text-text32 md:text-text40 text-[#082252] leading-none">Haz que tu heladería destaque con estas recetas.</h4>
+                        <h3 class="text-[#082252] font-galano_regular font-normal text-lg">
+                          {{$textoshome->description2section ?? "Ingrese un texto"}}
+                        </h3>
+                    </div>
+                </div>    
             </div>
         </section>
 
-        @foreach($rse as $index => $item)
-            <section class=" px-[5%] {{ $loop->last ? 'py-12 xl:py-16' : 'pt-12 xl:pt-16 ' }}">
-                <div class="grid grid-cols-1 lg:grid-cols-2 w-full gap-12 xl:gap-16">
-                    
-                    @if($index % 2 == 0)
-                        <div class="flex flex-col justify-center gap-5 lg:gap-5 text-textWhite">
-                            <h1 class="text-[#052F4E] font-galano_bold tracking-tighter text-3xl md:text-5xl leading-none">
-                                {{ $item->titulo ?? 'Ingrese un texto' }}
-                            </h1>
-                            <div class="text-[#052F4E] text-lg font-galano_regular">
-                                {!! $item->descripcion ?? 'Ingrese un texto' !!}
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col justify-center items-center">
-                            <img src="{{ asset($item->imagen) }}"
-                                class="object-contain aspect-square max-h-[500px] min-h-96" />
-                        </div>
-                    @else
-                        <div class="flex flex-col justify-center items-center">
-                            <img src="{{ asset($item->imagen) }}"
-                                class="object-contain aspect-square max-h-[500px] min-h-96" />
-                        </div>
-
-                        <div class="flex flex-col justify-center gap-5 lg:gap-5 text-textWhite">
-                            <h1 class="text-[#052F4E] font-galano_bold tracking-tighter text-3xl md:text-5xl leading-none">
-                                {{ $item->titulo ?? 'Ingrese un texto' }}
-                            </h1>
-                            <div class="text-[#052F4E] text-lg font-galano_regular">
-                                {!! $item->descripcion ?? 'Ingrese un texto' !!}
-                            </div>
-                        </div>
-                    @endif
-
+        <section>
+            <div class="flex flex-col gap-10 w-full px-[5%] py-10 ">
+                <div class="w-full">  
+                    <div id="getProductAjax" class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-3 sm:gap-y-5 gap-x-5 sm:gap-x-8">
+                          @foreach ($rse as $item)
+                              <x-product.card_receta_cremoso :item="$item" />
+                          @endforeach
+                    </div>
                 </div>
-            </section>
-        @endforeach
+            </div>
+      
+            {{-- <div class="flex justify-center items-center mb-10">
+                  <a href="javascript:;" @if (empty($page) || $page == 0) style="display:none;" @endif
+                      data-page={{ $page }}
+                      class="text-white py-3 px-5 border-2 bg-[#052F4E] rounded-xl font-galano_regular font-semibold  w-60 text-center  text-sm md:text-base  px-6 cargarMas">
+                      Cargar más modelos
+                  </a>
+            </div> --}}
+        </section>    
+
 
         @if ($testimonie->isEmpty())
         @else
@@ -143,16 +125,6 @@
                 </div>
             </section>
         @endif
-
-
-        {{-- <section class="py-12 xl:py-16 grid grid-cols-1 lg:grid-cols-2 px-[5%] gap-10">
-            <img class="w-full object-cover object-center h-[450px] md:h-[500px] col-span-2"
-                src="{{ asset('images/imagen/cremosorsefinal.png') }}" />
-            <img class="w-full object-cover object-center h-[450px] md:h-[500px]"
-                src="{{ asset('images/imagen/cremosorse.png') }}" />
-            <img class="w-full object-cover object-center h-[450px] md:h-[500px]"
-                src="{{ asset('images/imagen/cremosorse3.png') }}" />
-        </section> --}}
 
     </main>
 

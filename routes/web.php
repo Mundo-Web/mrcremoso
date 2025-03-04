@@ -89,7 +89,8 @@ Route::get('/contacto', [IndexController::class, 'contacto'])->name('contacto');
 Route::get('/libro-de-reclamaciones', [IndexController::class, 'librodereclamaciones'])->name('librodereclamaciones');
 Route::get('/blog/{filtro}', [IndexController::class, 'blog'])->name('blog');
 Route::get('/post/{id}', [IndexController::class, 'detalleBlog'])->name('detalleBlog');
-Route::get('/rse', [IndexController::class, 'rse'])->name('rse');
+Route::get('/recetas', [IndexController::class, 'rse'])->name('rse');
+Route::get('/recetas/{id}', [IndexController::class, 'detallereceta'])->name('detallereceta');
 
 /* Proceso de pago */
 Route::get('/carrito', [IndexController::class, 'carrito'])->name('carrito');

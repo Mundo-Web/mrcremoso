@@ -34,6 +34,7 @@
                     placeholder="Titulo">
                 </div>
               </div>
+
               <div class="md:col-span-5">
                 <label for="descripcion">Descripcion</label>
                 <div class="relative mb-2  mt-2">
@@ -53,11 +54,65 @@
                 </div>
               </div>
 
+              <div class="md:col-span-5">
+                <label for="steps">Pasos de receta</label>
+                <div class="relative mb-2  mt-2">
+                    <textarea type="text" rows="2" id="steps" name="steps"
+                    class="ckeditor mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Ingresa la descripcion de pasos">{!! $project->steps !!}</textarea>
+                </div>
+              </div>
 
+              <div class="md:col-span-5" id="images-container">
+                @foreach ($project->ingredients as $ingredient)
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-1 md:gap-4 mt-4 ingredient-group">
+                        <!-- Título -->
+                        <div class="md:col-span-4">
+                            <label for="ingredients_{{ $loop->iteration }}_titulo">Título</label>
+                            <div class="relative mb-2 mt-2">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <i class="text-lg text-gray-500 dark:text-gray-400 fas fa-heading"></i>
+                                </div>
+                                <input type="text" name="ingredients[{{ $loop->iteration }}][titulo]" value="{{ $ingredient->titulo }}"
+                                    class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 
+                                    focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 
+                                    dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Título del ingrediente">
+                            </div>
+                        </div>
+                        
+                        <!-- Imagen -->
+                        <div class="md:col-span-5">
+                            <label for="ingredients_{{ $loop->iteration }}_imagen">Imagen</label>
+                            <div class="relative mb-2 mt-2">
+                                <input type="file" name="ingredients[{{ $loop->iteration }}][imagen]" class="">
+                            </div>
+                        </div>
 
+                        @if ($ingredient->imagen)
+                          <div class="md:col-span-2">
+                            <img src="{{ asset($ingredient->imagen) }}" alt="Imagen actual" class="mb-2 w-20 h-20 object-contain object-end">
+                          </div>
+                        @endif
+                          
+                        <input type="hidden" name="ingredients[{{ $loop->iteration }}][id]"  value="{{$ingredient->id}}" />
+                        <input type="hidden" name="ingredients[{{ $loop->iteration }}][delete]" value="0">
+                        <!-- Botón para eliminar -->
+                        <div class="md:col-span-1 flex flex-row justify-start items-center">
+                            <button type="button" onclick="this.previousElementSibling.value='1'; this.closest('.ingredient-group').remove();" class="remove-ingredient text-red-500 hover:text-red-700 pt-2 pr-1">
+                                <i class="fas fa-trash-alt text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                @endforeach
+              </div>
 
-
-
+              <div class="md:col-span-5">
+                <button type="button" id="add-image"
+                    class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                    Añadir ingrediente
+                </button>
+              </div>
 
               <div class="md:col-span-5 text-right mt-6 flex justify-between">
                 <div class="inline-flex items-end">
@@ -100,5 +155,75 @@
         extraPlugins: 'colorbutton,font', // Activa plugins para color y fuentes
         removePlugins: 'elementspath', // Elimina la ruta de elementos
         resize_enabled: true // Permite redimensionar el editor
+    });
+
+    CKEDITOR.replace('steps', {
+        toolbar: [
+            { name: 'document', items: ['Source'] }, // Código fuente
+            { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo'] },
+            { name: 'styles', items: ['Styles', 'Format', 'FontSize'] }, // Tamaño y fuente
+            { name: 'colors', items: ['TextColor', 'BGColor'] }, // Color de texto y fondo
+            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat'] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Blockquote'] },
+            { name: 'insert', items: ['Table', 'HorizontalRule'] },
+            { name: 'links', items: ['Link', 'Unlink'] },
+            { name: 'tools', items: ['Maximize'] } // Maximizar
+        ],
+        extraPlugins: 'colorbutton,font', // Activa plugins para color y fuentes
+        removePlugins: 'elementspath', // Elimina la ruta de elementos
+        resize_enabled: true // Permite redimensionar el editor
+    });
+</script>
+
+<script>
+  $(document).ready(function () {
+        let ingredientIndex = $(".ingredient-group").length;
+
+        $("#add-image").click(function () {
+            ingredientIndex++;
+
+            let ingredientHtml = `
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-1 md:gap-4 mt-4 ingredient-group">
+                
+                <!-- Título -->
+                <div class="md:col-span-4">
+                    <label for="titulo_${ingredientIndex}">Título</label>
+                    <div class="relative mb-2 mt-2">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <i class="text-lg text-gray-500 dark:text-gray-400 fas fa-heading"></i>
+                        </div>
+                        <input type="text" name="ingredients[${ingredientIndex}][titulo]" id="titulo_${ingredientIndex}" 
+                            class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 
+                            focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 
+                            dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Ingrese el título">
+                    </div>
+                </div>
+                
+                <!-- Imagen -->
+                <div class="md:col-span-5">
+                    <label for="imagen_${ingredientIndex}">Imagen</label>
+                    <div class="relative mb-2 mt-2">
+                        <input type="file" name="ingredients[${ingredientIndex}][imagen]" id="imagen_${ingredientIndex}" 
+                            class=""
+                            accept="image/*">
+                    </div>
+                </div>
+
+                <!-- Botón para eliminar -->
+                <div class="md:col-span-1 flex flex-row justify-start items-center">
+                    <button type="button" class="remove-ingredient text-red-500 hover:text-red-700 pt-2 pr-1">
+                        <i class="fas fa-trash-alt text-xl"></i>
+                    </button>
+                </div>
+            </div>`;
+
+            $("#images-container").append(ingredientHtml);
+        });
+
+        // Eliminar un grupo de ingredientes
+        $(document).on("click", ".remove-ingredient", function () {
+            $(this).closest(".ingredient-group").remove();
+        });
     });
 </script>

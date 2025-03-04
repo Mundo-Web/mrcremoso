@@ -1,7 +1,7 @@
 <div class="flex flex-col group relative">
   <a href="{{ route('producto', $item->id) }}">
       <div class="bg-[#F2F5F7] border-[2px] border-[#052F4E66] rounded-xl flex flex-row aspect-[17/20]">
-          <div class="max-w-full flex flex-col items-center justify-center p-5 ">
+          <div class="max-w-full flex flex-col items-center justify-center p-2 3xs:p-5 ">
               <img class="w-full h-full object-contain object-bottom" alt="{{ $item->name }}" src="{{ asset($item->imagen)}}" onerror="this.onerror=null;this.src='{{ asset('images/imagen/noimagen.jpg') }}';" />
           </div>
       </div>

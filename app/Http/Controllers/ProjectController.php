@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ingredient;
 use App\Models\Project;
 use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request;
@@ -54,9 +55,14 @@ class ProjectController extends Controller
             'titulo' => 'required',
           ]);
       
-          $project = new Project();
+         
           try {
-      
+            $project = new Project();
+
+            $project->titulo = $request->titulo;
+            $project->descripcion = $request->descripcion;
+            $project->steps = $request->steps;
+
             if ($request->hasFile("imagen")) {
               $file = $request->file('imagen');
               $routeImg = 'storage/images/project/';
@@ -65,14 +71,32 @@ class ProjectController extends Controller
               $this->saveImg($file, $routeImg, $nombreImagen);
       
               $project->imagen = $routeImg . $nombreImagen;
-             
+            }
+
+            $project->save();
+          
+            if ($request->has('ingredients')) {
+                foreach ($request->ingredients as $ingredientData) {
+                    $ingredient = new Ingredient();
+                    $ingredient->project_id = $project->id; // Asociar al proyecto
+                    $ingredient->titulo = $ingredientData['titulo'];
+    
+                    // Guardar la imagen si se proporciona
+                    if (isset($ingredientData['imagen']) && $ingredientData['imagen']->isValid()) {
+                        $file = $ingredientData['imagen'];
+                        $routeImg = 'storage/images/ingredients/';
+                        $nombreImagen = Str::random(10) . '_' . $file->getClientOriginalName();
+    
+                        $this->saveImg($file, $routeImg, $nombreImagen);
+    
+                        $ingredient->imagen = $routeImg . $nombreImagen;
+                    }
+    
+                    $ingredient->save();
+                }
             }
       
-            $project->titulo = $request->titulo;
-            $project->descripcion = $request->descripcion;
-            $project->save();
-      
-            return redirect()->route('project.index')->with('success', 'Proyecto creado exitosamente.');
+            return redirect()->route('project.index')->with('success', 'Receta creada exitosamente.');
           } catch (\Throwable $th) {
             return response()->json(['messge' => 'Verifique sus datos '], 400);
           }
@@ -91,7 +115,7 @@ class ProjectController extends Controller
      */
     public function edit(string $id)
     {
-        $project = Project::find($id);
+        $project = Project::with('ingredients')->find($id);
 
         return view('pages.project.edit', compact('project'));
     }
@@ -101,12 +125,13 @@ class ProjectController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            'titulo' => 'required',
-          ]);
-              $project = Project::find($id);
-              try {
-                  
+            $request->validate([
+                'titulo' => 'required',
+            ]);
+              
+            try {
+                  $project = Project::find($id); 
+                   
                   if ($request->hasFile("imagen")) {
                       $file = $request->file('imagen');
                       $routeImg = 'storage/images/project/';
@@ -120,14 +145,66 @@ class ProjectController extends Controller
           
                   $project->titulo = $request->titulo;
                   $project->descripcion = $request->descripcion;
+                  $project->steps = $request->steps;
                   $project->save();
-      
-                  return redirect()->route('project.index')->with('success', 'Proyecto actualizado exitosamente.');
-      
-      
-              } catch (\Throwable $th) {
+                
+                
+                  // Actualizar o crear ingredientes
+                if ($request->has('ingredients')) {
+                    
+                    $existingIngredients = Ingredient::where('project_id', $project->id)->get();
+                    $ingredientIdsInRequest = collect($request->ingredients)->pluck('id')->filter()->toArray();
+
+                    // Recorrer los ingredientes existentes
+                    foreach ($existingIngredients as $existingIngredient) {
+                        // Si el ingrediente no está en el request, eliminarlo
+                        if (!in_array($existingIngredient->id, $ingredientIdsInRequest)) {
+                            // Eliminar la imagen si existe
+                            if ($existingIngredient->imagen && file_exists(public_path($existingIngredient->imagen))) {
+                                unlink(public_path($existingIngredient->imagen));
+                            }
+                            // Eliminar el ingrediente de la base de datos
+                            $existingIngredient->delete();
+                        }
+                    }
+
+                    foreach ($request->ingredients as $ingredientData) {
+                        // Si el índice es numérico, es un ingrediente existente
+                        if (isset($ingredientData['id']) && $ingredientData['id']) {
+                            $ingredient = Ingredient::find($ingredientData['id']);
+                            if (!$ingredient) {
+                                continue; // Si no existe, saltar
+                            }
+                        } else {
+                            // Si no es numérico, es un nuevo ingrediente
+                            $ingredient = new Ingredient();
+                            $ingredient->project_id = $project->id;
+                        }
+                        
+                        $ingredient->titulo = $ingredientData['titulo'];
+
+                        if (isset($ingredientData['imagen']) && $ingredientData['imagen']->isValid()) {
+
+                            if ($ingredient->imagen && file_exists(public_path($ingredient->imagen))) {
+                                unlink(public_path($ingredient->imagen));
+                            }
+
+                            $file = $ingredientData['imagen'];
+                            $routeImg = 'storage/images/ingredients/';
+                            $nombreImagen = Str::random(10) . '_' . $file->getClientOriginalName();
+                            $this->saveImg($file, $routeImg, $nombreImagen);
+                            $ingredient->imagen = $routeImg . $nombreImagen;
+                        }
+
+                        $ingredient->save();
+                    }
+                }
+
+                return redirect()->route('project.index')->with('success', 'Receta actualizada exitosamente.');
+
+            } catch (\Throwable $th) {
                   return response()->json(['messge' => 'Verifique sus datos '], 400); 
-              }
+            }
     }
 
     /**
@@ -148,7 +225,7 @@ class ProjectController extends Controller
           }
   
           $project->delete();
-          return response()->json(['message'=>'Proyecto eliminado']);
+          return response()->json(['message'=>'Receta eliminada']);
     }
   
     public function updateVisible(Request $request)
@@ -160,6 +237,6 @@ class ProjectController extends Controller
       $staff->status = $stauts;
   
       $staff->save();
-      return response()->json(['message' => 'Proyecto actualizado']);
+      return response()->json(['message' => 'Receta actualizada']);
     }
 }

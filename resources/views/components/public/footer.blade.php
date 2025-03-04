@@ -37,6 +37,7 @@
         .prose * {
             margin-bottom: 0% !important;
             margin-top: 0% !important;
+            max-width: 100%!important;
         }
     </style>
     
@@ -71,10 +72,10 @@
                    DATOS DE CONTACTO
                 </p>
                 <div class="flex flex-col gap-3 text-[#FFF9F1] font-galano_regular text-sm">
-                    <a>{{ $general[0]->address }}, {{ $general[0]->inside }},
-                                        {{ $general[0]->district }} - {{ $general[0]->city }}</a>
-                    <a>Correo Electrónico: <br> {{ $general[0]->email }}</a> 
-                    <a>Teléfono:<br> {{ $general[0]->cellphone }}</a>
+                    <span>{{ $general[0]->address }}, {{ $general[0]->inside }},
+                                        {{ $general[0]->district }} - {{ $general[0]->city }}</span>
+                    <span>Correo Electrónico: <br> {{ $general[0]->email }}</span> 
+                    <span>Teléfono:<br> {{ $general[0]->cellphone }}</span>
                 </div>
             </div>
 

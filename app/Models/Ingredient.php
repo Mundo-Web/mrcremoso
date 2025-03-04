@@ -5,19 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class Ingredient extends Model
 {
     use HasFactory;
 
     protected $filiable = [
+        'project_id',
         'titulo',
-        'descripcion',
-        'steps',
-        'imagen',
-        'status'];
+        'imagen'
+    ];
 
-    public function ingredients()
+    public function project()
     {
-        return $this->hasMany(Ingredient::class);
+        return $this->belongsTo(Project::class);
     }
 }

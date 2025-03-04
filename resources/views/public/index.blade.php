@@ -174,7 +174,7 @@
     
       @if ($productosPupulares->isEmpty())
       @else   
-        <section>
+        <section id="productoscarrusel">
             <div class="flex flex-col gap-10 w-full px-[5%] pt-10 md:pt-20">
                 <div class="flex flex-col xl:flex-row xl:justify-between items-start xl:items-center gap-5">
                     <div class="flex flex-col gap-2 max-w-4xl">
@@ -230,7 +230,7 @@
                     <img class="h-[550px] w-full object-contain" src="{{asset($textoshome->url_image3section)}}"
                     onerror="this.onerror=null;this.src='{{ asset('images/imagen/heladocremoso.png') }}';" alt="producto" />
                     <div class="lg:hidden flex flex-row justify-start md:justify-center items-start">
-                        <a href="#"
+                        <a href="#productoscarrusel"
                             class="text-[#052F4E] py-3 px-6 bg-white rounded-xl text-base font-galano_regular font-semibold text-center max-w-xs mx-auto">
                             ¡Prueba la diferencia y dale un gusto a tu día!
                         </a>
@@ -325,7 +325,7 @@
                     <div class="flex flex-col p-2 justify-center items-start gap-8">
                         <h2 class="text-[#052F4E] text-4xl md:text-5xl font-maille leading-none">{{$textoshome->title8section ?? "Ingrese un texto"}}</h2>
                         <div class="flex flex-row justify-start items-start">
-                            <a href="#"
+                            <a href="#productoscarrusel" id="scrollButton"
                                 class="text-white py-3 px-6 bg-[#052F4E] rounded-xl text-lg font-galano_light font-semibold text-center max-w-xs">
                                 {{$textoshome->one_description8section ?? "Ingrese un texto"}}
                             </a>
@@ -730,6 +730,38 @@
                 },
             },
         });
+    </script>
+    <script>
+        document.getElementById('scrollButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+            smoothScroll('#productoscarrusel', 800); // 800ms de duración del desplazamiento
+        });
+    
+        // Función para desplazamiento suave
+        function smoothScroll(target, duration) {
+            const targetElement = document.querySelector(target);
+            const targetPosition = targetElement.getBoundingClientRect().top;
+            const startPosition = window.pageYOffset;
+            let startTime = null;
+    
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = easeInOutQuad(timeElapsed, startPosition, targetPosition, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+    
+            // Función de easing para suavizar el desplazamiento
+            function easeInOutQuad(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+    
+            requestAnimationFrame(animation);
+        }
     </script>
 @stop
 
