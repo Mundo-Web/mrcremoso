@@ -203,7 +203,7 @@
 
 
     <section>
-        <div class="flex flex-col gap-10 w-full px-[5%] pt-10 pb-10 lg:pb-0 bg-[#052F4E] mt-10 lg:mt-20">
+        <div class="flex flex-col gap-10 w-full px-[5%] pt-10 pb-10 lg:pb-0 bg-[#052F4E]">
             <h2 class="text-white font-maille text-text36 sm:text-4xl md:text-text44 leading-none text-center">
                 {{$textoshome->title3section ?? "Ingrese un texto"}}
             </h2>
