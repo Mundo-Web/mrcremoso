@@ -106,7 +106,17 @@
                     class="font-galano_medium text-lg text-[#052F4E] pt-40 fixed inset-0 bg-[#f2f5f7] px-[5%] flex flex-col lg:flex-row lg:items-center clip-circle-0 peer-checked/menu:clip-circle-full transition-[clip-path] duration-500 gap-5 lg:gap-10 lg:clip-circle-full lg:relative lg:flex lg:justify-items-center lg:p-0 lg:bg-transparent flex-1">
 
                     <div
-                        class="flex flex-col lg:flex-row order-2 lg:order-1 lg:w-[80%] lg:justify-center gap-5 lg:gap-10">
+                        class="flex flex-col lg:flex-row order-2 lg:order-1 lg:w-[80%] lg:justify-center gap-5 lg:gap-6">
+
+                        <li class="flex flex-col">
+                            <a href="{{ route('index') }}"
+                                class="{{ isset($pagina) && $pagina == 'index' ? 'font-semibold' : '' }}">Inicio</a>
+                            @if (isset($pagina) && $pagina == 'index')
+                                <p
+                                    class="hidden lg:block lg:after:content-[''] lg:after:w-full lg:after:h-[2px] lg:after:bg-[#052f4e] lg:after:block">
+                                </p>
+                            @endif
+                        </li>
 
                         <li class="flex flex-col">
                             <a href="{{ route('nosotros') }}"
@@ -152,6 +162,17 @@
                             @endif
                         </li>
 
+                        
+                        <li class="flex flex-col">
+                            <a href="{{ route('contacto') }}"
+                                class="{{ isset($pagina) && $pagina == 'contacto' ? 'font-semibold' : '' }}">Contacto</a>
+                            @if (isset($pagina) && $pagina == 'contacto')
+                                <p
+                                    class="hidden lg:block lg:after:content-[''] lg:after:w-full lg:after:h-[2px] lg:after:bg-[#052f4e] lg:after:block">
+                                </p>
+                            @endif
+                        </li>
+
                         @if (count($blog) > 0)
                             <li class="flex flex-col">
                                 <a href="{{ route('blog', 0) }}"
@@ -163,15 +184,7 @@
                                 @endif
                             </li>
                         @endif
-                        <li class="flex flex-col">
-                            <a href="{{ route('contacto') }}"
-                                class="{{ isset($pagina) && $pagina == 'contacto' ? 'font-semibold' : '' }}">Contacto</a>
-                            @if (isset($pagina) && $pagina == 'contacto')
-                                <p
-                                    class="hidden lg:block lg:after:content-[''] lg:after:w-full lg:after:h-[2px] lg:after:bg-[#052f4e] lg:after:block">
-                                </p>
-                            @endif
-                        </li>
+
                     </div>
 
                     <div

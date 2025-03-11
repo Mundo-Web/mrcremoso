@@ -207,48 +207,62 @@
             <h2 class="text-white font-maille text-text36 sm:text-4xl md:text-text44 leading-none text-center">
                 {{$textoshome->title3section ?? "Ingrese un texto"}}
             </h2>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-0">
-                <div class="flex flex-col sm:flex-row gap-5 sm:gap-10 lg:flex-col justify-around">
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-0 lg:gap-0">
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-10 lg:flex-col justify-around">
 
-                    <div class="flex flex-col gap-2 p-2 max-w-xs relative">
+                    <div class="flex flex-col gap-1 lg:gap-2 p-0 lg:p-2 max-w-xs relative">
                         <img class="w-10" src="{{asset('images/imagen/iconohelado.png')}}" />
-                        <h2 class="text-white text-2xl font-galano_medium">{{$textoshome->title4section ?? "Ingrese un texto"}}</h2>
-                        <h2 class="text-white text-lg font-galano_regular"> {{$textoshome->description4section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-base lg:text-2xl font-galano_medium">{{$textoshome->title4section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-xs lg:text-lg font-galano_regular"> {{$textoshome->description4section ?? "Ingrese un texto"}}</h2>
                         <img class="hidden xl:flex absolute h-[30px] w-auto object-contain -right-1/2 top-1/2 translate-y-1/2" src="{{asset('images/imagen/flecha1.png')}}" />
                     </div>
 
-                    <div class="flex flex-col gap-2 p-2 max-w-xs relative">
+                    <div class="flex flex-col gap-1 lg:gap-2 p-0 lg:p-2 max-w-xs relative">
                         <img class="w-10" src="{{asset('images/imagen/iconohelado2.png')}}" />
-                        <h2 class="text-white text-2xl font-galano_medium">{{$textoshome->title5section ?? "Ingrese un texto"}}</h2>
-                        <h2 class="text-white text-lg font-galano_regular"> {{$textoshome->description5section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-base lg:text-2xl font-galano_medium">{{$textoshome->title5section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-xs lg:text-lg font-galano_regular"> {{$textoshome->description5section ?? "Ingrese un texto"}}</h2>
                         <img class="hidden xl:flex absolute h-[25px] w-auto object-contain -right-1/2 top-1/2 translate-y-1/2" src="{{asset('images/imagen/flecha2.png')}}" />
                     </div>
 
+                    <div class="flex flex-col gap-1 lg:gap-2 p-0 lg:p-2 max-w-xs relative lg:hidden">
+                        <img class="w-10" src="{{asset('images/imagen/iconohelado3.png')}}" />
+                        <h2 class="text-white text-base lg:text-2xl font-galano_medium">{{$textoshome->title6section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-xs lg:text-lg font-galano_regular"> {{$textoshome->description6section ?? "Ingrese un texto"}}</h2>
+                        <img class="hidden xl:flex absolute h-[40px] w-auto object-contain -left-1/2 top-1/2 translate-y-1/2" src="{{asset('images/imagen/flecha3.png')}}" />
+                    </div>
+
+                    <div class="flex flex-col gap-1 lg:gap-2 p-0 lg:p-2 max-w-xs relative lg:hidden">
+                        <img class="w-10" src="{{asset('images/imagen/iconohelado4.png')}}" />
+                        <h2 class="text-white text-base lg:text-2xl font-galano_medium">{{$textoshome->title7section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-xs lg:text-lg font-galano_regular"> {{$textoshome->description7section ?? "Ingrese un texto"}}</h2>
+                        <img class="hidden xl:flex absolute h-[80px] w-auto object-contain -left-[130px] top-0 translate-y-0" src="{{asset('images/imagen/flecha4.png')}}" />
+                    </div>
+                    
                 </div>
 
-                <div class="flex flex-col justify-end items-center">
-                    <img class="h-[550px] w-full object-contain" src="{{asset($textoshome->url_image3section)}}"
+                <div class="flex flex-col justify-center sm:justify-end items-center">
+                    <img class="h-[350px] lg:h-[550px] w-full object-contain object-bottom" src="{{asset($textoshome->url_image3section)}}"
                     onerror="this.onerror=null;this.src='{{ asset('images/imagen/heladocremoso.png') }}';" alt="producto" />
                     <div class="lg:hidden flex flex-row justify-start md:justify-center items-start">
                         <a href="#productoscarrusel"
-                            class="text-[#052F4E] py-3 px-6 bg-white rounded-xl text-base font-galano_regular font-semibold text-center max-w-xs mx-auto">
+                            class="text-[#052F4E] py-3 px-6 bg-white rounded-xl text-xs lg:text-base font-galano_regular font-semibold text-center max-w-xs mx-auto">
                             ¡Prueba la diferencia y dale un gusto a tu día!
                         </a>
                     </div>
                 </div>
 
-                <div class="flex flex-col sm:flex-row gap-5 sm:gap-10 lg:flex-col justify-around items-start lg:items-end">
+                <div class="sm:flex flex-col sm:flex-row gap-5 sm:gap-10 lg:flex-col justify-around items-start lg:items-end hidden">
                     <div class="flex flex-col gap-2 p-2 max-w-xs relative">
                         <img class="w-10" src="{{asset('images/imagen/iconohelado3.png')}}" />
-                        <h2 class="text-white text-2xl font-galano_medium">{{$textoshome->title6section ?? "Ingrese un texto"}}</h2>
-                        <h2 class="text-white text-lg font-galano_regular"> {{$textoshome->description6section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-base lg:text-2xl font-galano_medium">{{$textoshome->title6section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-xs lg:text-lg font-galano_regular"> {{$textoshome->description6section ?? "Ingrese un texto"}}</h2>
                         <img class="hidden xl:flex absolute h-[40px] w-auto object-contain -left-1/2 top-1/2 translate-y-1/2" src="{{asset('images/imagen/flecha3.png')}}" />
                     </div>
 
                     <div class="flex flex-col gap-2 p-2 max-w-xs relative">
                         <img class="w-10" src="{{asset('images/imagen/iconohelado4.png')}}" />
-                        <h2 class="text-white text-2xl font-galano_medium">{{$textoshome->title7section ?? "Ingrese un texto"}}</h2>
-                        <h2 class="text-white text-lg font-galano_regular"> {{$textoshome->description7section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-base lg:text-2xl font-galano_medium">{{$textoshome->title7section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-xs lg:text-lg font-galano_regular"> {{$textoshome->description7section ?? "Ingrese un texto"}}</h2>
                         <img class="hidden xl:flex absolute h-[80px] w-auto object-contain -left-[130px] top-0 translate-y-0" src="{{asset('images/imagen/flecha4.png')}}" />
                     </div>
                 </div>
@@ -286,7 +300,7 @@
     @endif
    
 
-    <section>
+    {{-- <section>
         <div class="flex flex-col gap-10 lg:gap-14 w-full px-0 md:pl-[5%]  bg-[#EBEDEF] mt-10 md:mt-20">
 
             <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -313,7 +327,7 @@
             </div>
 
         </div>
-    </section>
+    </section> --}}
 
   
     <section>
