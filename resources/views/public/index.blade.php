@@ -241,9 +241,10 @@
                 </div>
 
                 <div class="flex flex-col justify-center sm:justify-end items-center">
-                    <img class="h-[350px] lg:h-[550px] w-full object-contain object-bottom" src="{{asset($textoshome->url_image3section)}}"
-                    onerror="this.onerror=null;this.src='{{ asset('images/imagen/heladocremoso.png') }}';" alt="producto" />
-                    <div class="lg:hidden flex flex-row justify-start md:justify-center items-start">
+                    <img class="h-[550px] lg:h-[550px] w-full object-contain object-bottom" src="{{asset($textoshome->url_image3section)}}"
+                    onerror="this.onerror=null;this.src='{{ asset('images/imagen/mixto.png') }}';" alt="producto" />
+                    
+                    <div class="lg:hidden flex flex-row justify-start md:justify-center items-start -mt-10">
                         <a href="#productoscarrusel"
                             class="text-[#052F4E] py-3 px-6 bg-white rounded-xl text-xs lg:text-base font-galano_regular font-semibold text-center max-w-xs mx-auto">
                             ¡Prueba la diferencia y dale un gusto a tu día!
