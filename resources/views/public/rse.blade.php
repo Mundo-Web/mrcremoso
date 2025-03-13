@@ -5,7 +5,20 @@
 @stop
 
 @section('content')
+    <style>
+         .swiper-testimonios .swiper-pagination-bullet {
+            width: 14px;
+            height: 8px;
+            border-radius: 6px;
+            background-color: #052F4E !important;
+        
+        }
 
+        .swiper-testimonios .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+            background-color: #05304e56!important;
+            opacity: 1;
+        }
+    </style>
     <main>
 
         <section>
