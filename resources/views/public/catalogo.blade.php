@@ -71,8 +71,8 @@
                   </div>
                   {{-- <div class="swiper-pagination-categorias !flex justify-center py-3 mt-3"></div> --}}
               </div>
-              <div class="swiper-categorias-prev absolute top-1/2 -translate-y-1/2 -left-2 lg:-left-5 z-50 bg-white rounded-full"><i class="fa-solid fa-circle-chevron-left text-5xl text-[#052F4E]"></i></div>
-              <div class="swiper-categorias-next absolute top-1/2 -translate-y-1/2 -right-2 lg:-right-5 z-50 bg-white rounded-full"><i class="fa-solid fa-circle-chevron-right text-5xl text-[#052F4E]"></i></div>
+              <div class="swiper-categorias-prev absolute top-1/2 -translate-y-1/2 -left-2 lg:-left-5 z-20 bg-white rounded-full"><i class="fa-solid fa-circle-chevron-left text-5xl text-[#052F4E]"></i></div>
+              <div class="swiper-categorias-next absolute top-1/2 -translate-y-1/2 -right-2 lg:-right-5 z-20 bg-white rounded-full"><i class="fa-solid fa-circle-chevron-right text-5xl text-[#052F4E]"></i></div>
           </div>
       </div>
   </section>
