@@ -73,7 +73,9 @@
                                             </div>
                                             @endforeach
                                         </div>
-                                        <div class="swiper-testimonios !flex justify-center py-3 mt-3"></div>
+                                        <div class="flex flex-row justify-center">
+                                            <div class="swiper-testimonios !flex justify-center py-3 mt-3 "></div>
+                                        </div>
                                     </div>
                             </div>
                             <a id="abrirgaleria" class="bg-[#052F4E] text-white px-6 py-2.5 rounded-xl font-galano_medium mt-2"> Ver más historias </a>
@@ -157,7 +159,8 @@
                 },
                 pagination: {
                     el: ".swiper-testimonios",
-                    clickable: true
+                    clickable: true,
+                    dynamicBullets: true,
                 },
 
                 breakpoints: {
