@@ -61,9 +61,9 @@
       <x-menu.group title="Productos">
         <x-menu.item id="categorias" href="{{ route('categorias.index') }}" icon="fas fa-folder">Categorias</x-menu.item>
         {{-- <x-menu.item id="subcategories" href="{{ route('subcategories.index') }}" icon="fas fa-folder-open">Subcategorias</x-menu.item> --}}
-        {{-- <x-menu.item id="tags" href="{{ route('tags.index') }}" icon="fas fa-tag">Etiquetas</x-menu.item> --}}
         <x-menu.item id="products" href="{{ route('products.index') }}" icon="fas fa-box">Productos</x-menu.item>
-        {{-- <x-menu.item id="logos" href="{{ route('logos.index') }}" icon="fas fa-shapes">Marcas</x-menu.item> --}}
+        <x-menu.item id="tags" href="{{ route('tags.index') }}" icon="fas fa-tag">Marcas</x-menu.item>
+       
         
         
         {{-- <x-menu.item id="offers" href="{{ route('Admin/Offers.jsx') }}" icon="fas fa-boxes">Combos</x-menu.item> --}}
@@ -72,26 +72,25 @@
       <x-menu.group title="Contenido de la web">
         
         <x-menu.item id="blog" href="{{ route('blog.index') }}" icon="fa-solid fa-blog">Blog</x-menu.item>
-        
         <x-menu.item id="slider" href="{{ route('slider.index') }}" icon="fa fa-solid fa-image">Sliders</x-menu.item>
-        {{-- <x-menu.item id="banners" href="{{ route('banners.index') }}" icon="fa fa-solid fa-image">Banners</x-menu.item> --}}
+        <x-menu.item id="logos" href="{{ route('logos.index') }}" icon="fas fa-shapes">Certificaciones</x-menu.item>
+        <x-menu.item id="banners" href="{{ route('banners.index') }}" icon="fa fa-solid fa-image">Aliados Comerciales</x-menu.item>
         <x-menu.item id="servicios" href="{{ route('servicios.index') }}" icon="fas fa-sliders-h">Servicios</x-menu.item>
-        <x-menu.item id="popup" href="{{ route('popup.index') }}" icon="fas fa-sliders-h">Popup</x-menu.item>
         <x-menu.item id="strength" href="{{ route('strength.index') }}"  icon="fa-regular fa-clipboard">Estadisticas</x-menu.item>
-  
-        <x-menu.item id="reglasdedescuento" href="{{ route('reglasDescuentos.index') }}">Reglas de descuento</x-menu.item>
-        <x-menu.item id="cupones" href="{{ route('cupones.index') }}" icon="fa-solid fa-ticket">Cupones</x-menu.item>
-        <x-menu.item id="prices" href="{{ route('prices.index') }}" icon="fas fa-truck">Costos de Envio </x-menu.item>
-        <x-menu.item id="estados" href="{{ route('estados.index') }}" icon="fas fa-toggle-on">Estados de pedidos</x-menu.item>
+        <x-menu.item id="rse" href="{{ route('project.index') }}" icon="fas fa-pencil-alt">Recetas</x-menu.item> 
+        <x-menu.item id="popup" href="{{ route('popup.index') }}" icon="fas fa-sliders-h">Popup</x-menu.item>
+
+        <x-menu.item id="homeview" href="{{ route('homeview.edit', 1) }}" icon="fas fa-pencil-alt">Textos Home</x-menu.item> 
+        <x-menu.item id="sobrenosotros" href="{{ route('aboutus.index') }}" icon="fas fa-pencil-alt">Sobre Nosotros</x-menu.item> 
+
+
         
         
         {{-- <x-menu.item id="politica-datos" href="{{ route('politicadatos.detalle', 1) }}" icon="fas fa-file-contract">Terminos Datos</x-menu.item> --}}
 
         {{-- <x-menu.item id="tiempo-y-costos-envio" href="{{ route('tiempo-y-costos-envio.edit', 1) }}" icon="fas fa-file-contract">Tiempo y Costos de Envío</x-menu.item> --}}
         {{-- <x-menu.item id="plazos-de-reembolso" href="{{ route('plazos-de-reembolso.edit', 1) }}" icon="fas fa-file-contract">Plazos de Reembolso</x-menu.item> --}}
-        <x-menu.item id="homeview" href="{{ route('homeview.edit', 1) }}" icon="fas fa-pencil-alt">Textos Home</x-menu.item> 
-        <x-menu.item id="sobrenosotros" href="{{ route('aboutus.index') }}" icon="fas fa-pencil-alt">Sobre Nosotros</x-menu.item> 
-        <x-menu.item id="rse" href="{{ route('project.index') }}" icon="fas fa-pencil-alt">Recetas</x-menu.item> 
+  
         {{-- <x-menu.item id="tratamiento-adicional-datos" href="{{ route('tratamiento-adicional-datos.edit', 1) }}" icon="fas fa-file-contract">Tratamiento Adicional Datos</x-menu.item> --}}
         {{-- <x-menu.item id="politica-cookies" href="{{ route('politica-cookies.edit', 1) }}" icon="fas fa-file-contract">Políticas de cookies</x-menu.item> --}}
         {{-- <x-menu.item id="campanas-publicitarias" href="{{ route('campanas-publicitarias.edit', 1) }}" icon="fas fa-file-contract">Campañas Publicitarias</x-menu.item> --}}
@@ -110,6 +109,13 @@
         {{-- <x-menu.item id="faqs" href="{{ route('faqs.index') }}" icon="fas fa-question-circle">FAQs</x-menu.item> --}}
         {{-- <x-menu.item id="galerie" href="{{ route('galerie.index') }}" icon="fas fa-images">Galerias</x-menu.item> --}}
        
+      </x-menu.group>
+
+      <x-menu.group title="Configuracion de ventas">
+        <x-menu.item id="cupones" href="{{ route('cupones.index') }}" icon="fa-solid fa-ticket">Cupones</x-menu.item>
+        <x-menu.item id="reglasdedescuento" href="{{ route('reglasDescuentos.index') }}">Reglas de descuento</x-menu.item>
+        <x-menu.item id="prices" href="{{ route('prices.index') }}" icon="fas fa-truck">Costos de Envio </x-menu.item>
+        <x-menu.item id="estados" href="{{ route('estados.index') }}" icon="fas fa-toggle-on">Estados de pedidos</x-menu.item>
       </x-menu.group>
 
       <x-menu.group title="Datos de la empresa">

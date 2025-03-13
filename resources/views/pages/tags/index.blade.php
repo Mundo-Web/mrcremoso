@@ -3,7 +3,7 @@
 
     <section class="py-4 border-b border-slate-100 dark:border-slate-700">
       <a href="{{ route('tags.create') }}"
-        class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded text-sm">Agregar etiqueta</a>
+        class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded text-sm">Agregar Marcas</a>
     </section>
 
 
@@ -12,7 +12,7 @@
 
 
       <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
-        <h2 class="font-semibold text-slate-800 dark:text-slate-100 text-2xl tracking-tight">Etiquetas</h2>
+        <h2 class="font-semibold text-slate-800 dark:text-slate-100 text-2xl tracking-tight">Marcas</h2>
       </header>
       <div class="p-3">
 
@@ -22,13 +22,12 @@
           <table id="tabladatos" class="display text-lg" style="width:100%">
             <thead>
               <tr>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Color</th>
-                <th>Visible</th>
-                <th>Menu</th>
-
-                <th>Acciones</th>
+                <th class="w-full">Nombre</th>
+                {{-- <th>Descripción</th> --}}
+                {{-- <th>Color</th> --}}
+                <th class="w-32">Visible</th>
+                {{-- <th>Menu</th> --}}
+                <th class="w-32">Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -36,10 +35,10 @@
               @foreach ($tags as $item)
                 <tr>
                   <td>{{ $item->name }}</td>
-                  <td>{{ $item->description }}</td>
-                  <td>
+                  {{-- <td>{{ $item->description }}</td> --}}
+                  {{-- <td>
                     <div class="rounded-full w-8 h-8 mx-auto" style="background-color: {{ $item->color }}"></div>
-                  </td>
+                  </td> --}}
                   <td>
                     <form method="POST" action="">
                       @csrf
@@ -58,7 +57,8 @@
 
 
                   </td>
-                  <td>
+
+                  {{-- <td>
                     <form method="POST" action="">
                       @csrf
                       <input type="checkbox" id="hs-basic-usage"
@@ -72,10 +72,8 @@
                         data-titleService='{{ $item->name }}' {{ $item->is_menu == 1 ? 'checked' : '' }}>
                       <label for="{{ 'v_' . $item->id }}"></label>
                     </form>
+                  </td> --}}
 
-
-
-                  </td>
                   <td class="flex flex-row justify-end items-center gap-5">
 
                     <a href="{{ route('tags.edit', $item->id) }}"
@@ -98,8 +96,8 @@
             <tfoot>
               <tr>
                 <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Color</th>
+                {{-- <th>Descripción</th> --}}
+                {{-- <th>Color</th> --}}
                 <th>Visible</th>
                 <th>Acciones</th>
               </tr>

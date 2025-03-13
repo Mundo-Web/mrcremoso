@@ -44,6 +44,9 @@ return new class extends Migration
             $table->string('interbank')->nullable();
             $table->string('nroyape')->nullable();
             $table->string('nombreyape')->nullable();
+            $table->text('contacto')->nullable();
+            $table->text('sedeslima')->nullable();
+            $table->text('sedesnacional')->nullable();
 
 
             $table->timestamps();

@@ -20,9 +20,10 @@
                     <table id="tabladatos" class="display text-lg" style="width:100%" >
                         <thead>
                             <tr>
-                                <th>Nombre</th>
+                                <th class="w-24">Imagen</th>
+                                <th class="">Video</th>
                                 {{-- <th>Ocupación</th> --}}
-                                <th>Testimonio</th>
+                                {{-- <th>Testimonio</th> --}}
                                 <th class="w-32">Visible</th>
                                 <th class="w-32">Acciones</th>
                             </tr>
@@ -31,9 +32,9 @@
 
                             @foreach($testimony as $item)
                                 <tr>
-                                    <td class="dark:bg-slate-800">{{$item->name}}</td>
-                                    {{-- <td class="dark:bg-slate-800">{{$item->ocupation}}</td> --}}
-                                    <td class="dark:bg-slate-800">{{ Str::limit($item->testimonie, 100) }}</td>
+                                    <td class="dark:bg-slate-800"><img src="{{ asset($item->imagen) }}" onerror="this.onerror=null;this.src='{{ asset('images/imagen/noimagen.jpg') }}';" class="h-12 w-auto object-contain object-center"></td>
+                                    <td class="dark:bg-slate-800"><img src="https://i.ytimg.com/vi/{{ $item->video }}/hq720.jpg" onerror="this.onerror=null;this.src='{{ asset('images/imagen/noimagen.jpg') }}';" class="h-12 w-auto object-contain object-center"></td>
+                                    {{-- <td class="dark:bg-slate-800">{{ Str::limit($item->testimonie, 100) }}</td> --}}
                                     <td class="dark:bg-slate-800">
                                         <form method="POST" action="">
                                           @csrf
@@ -67,9 +68,9 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Nombre</th>
+                                <th>Imagen</th>
                                 {{-- <th>Ocupación</th> --}}
-                                <th>Testimonio</th>
+                                <th>Video</th>
                                 <th>Visible</th>
                                 <th>Acciones</th>
                             </tr>

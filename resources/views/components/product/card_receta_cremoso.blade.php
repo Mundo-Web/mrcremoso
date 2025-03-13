@@ -7,7 +7,7 @@
           </div>
           <div class="p-2 sm:p-5">
             <a class="text-center line-clamp-2" href="{{ route('detallereceta', $item->id) }}">  
-              <h2 class="font-galano_regular xl:font-galano_bold font-semibold text-[#052F4E] leading-5 text-base md:text-lg xl:text-2xl line-clamp-2">{{ $item->titulo }}</h2>
+              <h2 class="font-galano_regular xl:font-galano_bold font-semibold text-[#052F4E] leading-none text-base md:text-lg xl:text-2xl line-clamp-2">{{ $item->titulo }}</h2>
             </a>
           </div>
       </div>

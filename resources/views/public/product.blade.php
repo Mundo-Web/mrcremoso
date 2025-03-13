@@ -150,6 +150,18 @@
                        {!!$product->description!!}
                     </div>
 
+                    @if($product->tags->isNotEmpty())
+                    <div class="text-[#052F4E] text-lg font-galano_semibold flex flex-col gap-1">
+                        Marcas que representamos:
+                        <div class="flex flex-col items-start">
+                            <p class="text-[#052F4E] text-base font-galano_regular">
+                                {{ implode(', ', $product->tags->pluck('name')->toArray()) }}
+                            </p>
+                        </div>
+                     </div>
+                    @endif
+                    
+
                     {{-- <span id="stock" class="font-galano_semibold text-base text-[#052F4E] mt-2">
                         420 Unidades/Caja</span> --}}
 
@@ -316,7 +328,9 @@
                 </div>   
                 
                 <div class="flex flex-col gap-2">
-                    <img class="w-full aspect-square object-contain" src="{{asset($product->imagen_ambiente)}}" onerror="this.onerror=null;this.src='{{ asset('images/imagen/medidascremoso.png') }}';" />  
+                    @if ($product->imagen_ambiente)
+                        <img class="w-full aspect-square object-contain" src="{{asset($product->imagen_ambiente)}}" onerror="this.onerror=null;this.src='{{ asset('images/imagen/medidascremoso.png') }}';" />  
+                    @endif
                 </div>
 
             </div>

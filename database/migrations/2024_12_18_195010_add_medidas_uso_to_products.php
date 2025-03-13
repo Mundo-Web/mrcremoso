@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->text('medidas')->nullable();
             $table->text('usos')->nullable();
-            $table->text('peso')->change();
+            // $table->text('peso')->change();
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->dropColumn(['medidas']);
             $table->dropColumn(['usos']);
-            $table->string('peso')->change();
+            // $table->string('peso')->change();
 
         });
     }

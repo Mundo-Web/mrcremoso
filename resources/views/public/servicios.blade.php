@@ -82,16 +82,18 @@
                 <div class="md:basis-4/6 lg:basis-5/6 flex flex-col gap-10">
 
                     <div class="flex flex-col gap-5" data-aos="fade-up" data-aos-duration="150">
-                        <div class="flex justify-center items-center">
-                            <img src="{{ asset($servicioselec->url_image.$servicioselec->name_image) }}"  alt="{{$servicioselec->title}}"
-                                onerror="this.onerror=null;this.src='{{ asset('images/imagen/heladoszambito.png') }}';"
-                                class="w-full h-[450px] object-cover rounded-xl hidden md:block">
+                        @if ($servicioselec->url_image)
+                            <div class="flex justify-center items-center">
+                                <img src="{{ asset($servicioselec->url_image.$servicioselec->name_image) }}"  alt="{{$servicioselec->title}}"
+                                    onerror="this.onerror=null;this.src='{{ asset('images/imagen/heladoszambito.png') }}';"
+                                    class="w-full h-[450px] object-cover rounded-xl hidden md:block">
 
-                            <img src="{{ asset($servicioselec->url_image.$servicioselec->name_image) }}" alt="{{$servicioselec->title}}"
-                                onerror="this.onerror=null;this.src='{{ asset('images/imagen/heladoszambito.png') }}';"
-                                class="w-full h-[450px] object-cover rounded-xl block md:hidden">
-                        </div>
-
+                                <img src="{{ asset($servicioselec->url_image.$servicioselec->name_image) }}" alt="{{$servicioselec->title}}"
+                                    onerror="this.onerror=null;this.src='{{ asset('images/imagen/heladoszambito.png') }}';"
+                                    class="w-full h-[450px] object-cover rounded-xl block md:hidden">
+                            </div>
+                        @endif
+                        
                         <div class="flex flex-col gap-1">
                             <h2 class="text-[#052F4E] font-galano_bold tracking-tighter text-3xl leading-none">
                                 {{$servicioselec->title}}</h2>

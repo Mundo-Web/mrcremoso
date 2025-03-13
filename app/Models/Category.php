@@ -29,4 +29,9 @@ class Category extends Model
     {
         return $this->hasMany(SubCategory::class)->where('visible', true);
     }
+
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class, 'category_id');
+    }
 }

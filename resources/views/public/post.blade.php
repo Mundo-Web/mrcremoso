@@ -29,7 +29,8 @@
                     {{ $post->title }}
                 </h2>
                 
-                @if ($post->url_image)
+                @if ($post->url_image == 'images/imagen/')
+                @else
                     <div class="w-full mt-5" data-aos="fade-up" data-aos-offset="150">
                         <img src="{{ asset($post->url_image . $post->name_image) }}" alt="catedral"
                             class="w-full h-[563px] object-cover hidden md:block rounded-xl" onerror="this.onerror=null;this.src='{{ asset('images/imagen/noimagen.jpg') }}';" />
@@ -39,7 +40,7 @@
                 @endif
 
 
-                <div class="flex flex-col gap-2 text-[#333] font-galano_regular font-normal text-base py-4">
+                <div class="flex flex-col gap-2 text-[#333] font-galano_regular font-normal text-base py-4 mb-10">
                     {!! $post->description !!}
                 </div>
 

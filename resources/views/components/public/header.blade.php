@@ -97,7 +97,7 @@
 
                 <div class="flex justify-center items-center z-40">
                     <a href="{{ route('index') }}">
-                        <img src="{{ asset('images/svg/logomrcremoso.svg') }}" alt="Cremoso" class="w-[170px]">
+                        <img src="{{ asset('images/svg/logomrcremoso.svg') }}" alt="Cremoso" class="min-w-[170px]">
                     </a>
                 </div>
 

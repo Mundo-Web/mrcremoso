@@ -47,7 +47,7 @@
                   </h3>
               </div>
           </div>    
-          <div class="w-full relative">  
+          <div class="w-full relative max-w-7xl mx-auto">  
               <div class="swiper categorias h-max">
                   <div class="swiper-wrapper">
                       @foreach ($categories as $categorie)  
@@ -109,8 +109,8 @@
       <div class="flex justify-center items-center mb-10">
             <a href="javascript:;" @if (empty($page) || $page == 0) style="display:none;" @endif
                 data-page={{ $page }}
-                class="text-white py-3 px-5 border-2 bg-[#052F4E] rounded-xl font-galano_regular font-semibold  w-60 text-center  text-sm md:text-base  px-6 cargarMas">
-                Cargar más modelos
+                class="text-white py-3 px-5 border-2 bg-[#052F4E] rounded-xl font-galano_regular font-semibold  w-60 text-center  text-sm md:text-base cargarMas">
+                Cargar más productos
             </a>
       </div>
   </section>

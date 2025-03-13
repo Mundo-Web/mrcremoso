@@ -5,7 +5,16 @@
 @section('css_importados')
 
 @stop
-
+<style>
+  ul {
+      list-style-type: disc!important; 
+      padding-left: 20px;   
+  }
+  li {
+      margin-bottom: 5px;  
+      margin-left: 20px;  
+  }    
+</style>    
 @section('content')
     <?php
     // Definición de la función capitalizeFirstLetter()
@@ -107,7 +116,7 @@
                                 </div>
 
                                 <div class="px-2 sm:px-5 pb-2 sm:pb-5">
-                                    <h2 class="font-galano_regular xl:font-galano_semibold font-semibold text-[#052F4E] leading-5 text-base md:text-lg text-center line-clamp-2">{{ $ingrediente->titulo }}</h2>
+                                    <h2 class="font-galano_regular xl:font-galano_semibold font-semibold text-[#052F4E] leading-none text-[15px] text-center line-clamp-3">{{ $ingrediente->titulo }}</h2>
                                 </div>
 
                             </div>

@@ -150,7 +150,7 @@ class SaveItems implements ShouldQueue
           'precio' => $item[6],
           'descuento' => $item[7] ?? 0,
           'color' => $item[8],
-          'peso' => $item[9],
+          'peso' => $item[9] ?? null,
           'stock' => $item[10],
           'medidas' => $item[12],
           'usos' => $item[13],

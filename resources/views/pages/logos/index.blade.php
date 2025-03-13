@@ -3,7 +3,7 @@
 
     <section class="py-4 border-b border-slate-100 dark:border-slate-700">
       <a href="{{ route('logos.create') }}"
-        class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded text-sm">Agregar marca</a>
+        class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded text-sm">Agregar</a>
     </section>
 
 
@@ -12,7 +12,7 @@
 
 
       <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
-        <h2 class="font-semibold text-slate-800 dark:text-slate-100 text-2xl tracking-tight">Marcas</h2>
+        <h2 class="font-semibold text-slate-800 dark:text-slate-100 text-2xl tracking-tight">Certificaciones</h2>
       </header>
       <div class="p-3">
 
@@ -22,12 +22,12 @@
           <table id="tabladatos" class="display text-lg" style="width:100%">
             <thead>
               <tr>
-                <th>Orden</th>
+                {{-- <th>Orden</th> --}}
                 <th class="w-32">Imagen</th>
-                <th class="w-32">Fondo</th>
+                {{-- <th class="w-32">Fondo</th> --}}
                 <th>Titulo</th>
                 {{-- <th>Descripcion</th> --}}
-                <th class="w-32">Destacar</th>
+                {{-- <th class="w-32">Destacar</th> --}}
                 <th class="w-32">Visible</th>
                 <th class="w-32">Acciones</th>
               </tr>
@@ -35,11 +35,11 @@
             <tbody>
               @foreach ($logos as $logo)
                 <tr>
-                  <td>{{$logo->order}}</td>
-                  <td class="dark:bg-slate-800"><img class="w-20 object-contain mx-auto" src="{{ asset($logo->url_image) }}" onerror="this.onerror=null;this.src='{{ asset('images/imagen/noimagen.jpg') }}';"/></td>
-                  <td class="dark:bg-slate-800"><img class="w-20 object-contain mx-auto" src="{{ asset($logo->url_image2) }}" onerror="this.onerror=null;this.src='{{ asset('images/imagen/noimagen.jpg') }}';"/></td>
+                  {{-- <td>{{$logo->order}}</td> --}}
+                  <td class="dark:bg-slate-800"><img class="w-20 max-h-20 object-contain mx-auto" src="{{ asset($logo->url_image) }}" onerror="this.onerror=null;this.src='{{ asset('images/imagen/noimagen.jpg') }}';"/></td>
+                  {{-- <td class="dark:bg-slate-800"><img class="w-20 object-contain mx-auto" src="{{ asset($logo->url_image2) }}" onerror="this.onerror=null;this.src='{{ asset('images/imagen/noimagen.jpg') }}';"/></td> --}}
                   <td class="dark:bg-slate-800">{{ $logo->title }}</td>
-                   <td class="">
+                  {{-- <td class="">
                     <form method="POST" action="">
                       @csrf
                       <input type="checkbox" id="hs-basic-usage"
@@ -53,10 +53,7 @@
                         data-titleService='{{ $logo->title }}' {{ $logo->destacar == 1 ? 'checked' : '' }}>
                       <label for="{{ 'v_' . $logo->id }}"></label>
                     </form>
-
-
-
-                  </td>
+                  </td> --}}
                   <td class="">
                     <form method="POST" action="">
                       @csrf
@@ -94,12 +91,12 @@
             </tbody>
             <tfoot>
               <tr>
-                <th>Orden</th>
+                {{-- <th>Orden</th> --}}
                 <th>Imagen</th>
-                <th class="w-32">Fondo</th>
+                {{-- <th class="w-32">Fondo</th> --}}
                 <th>Titulo</th>
-                <th class="w-32">Destacar</th>
-                <th class="w-32">Visible</th>
+                {{-- <th>Destacar</th> --}}
+                <th>Visible</th>
                 {{-- <th>Descripcion</th> --}}
                 <th>Acciones</th>
               </tr>

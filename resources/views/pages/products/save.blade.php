@@ -553,10 +553,10 @@
               </div> --}}
 
               <div class=" grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5 rounded shadow-lg p-4 px-4 border">
-                {{-- <h4 class="font-semibold text-slate-800 dark:text-slate-100 text-xl tracking-tight">
-                  Tags</h4>
+                <h4 class="font-semibold text-slate-800 dark:text-slate-100 text-xl tracking-tight">
+                 Marcas</h4>
                 <div class="md:col-span-5 flex justify-between gap-4">
-                  <ul class="flex flex-wrap w-full gap-2">
+                  {{-- <ul class="flex flex-wrap w-full gap-2">
                     @foreach ($tags as $tag)
                       <li>
                         <input type="checkbox" id="tag-{{ $tag->id }}" name="tags_id[]"
@@ -572,17 +572,17 @@
                     @endforeach
 
                   </ul> --}}
-                  {{-- <div>
+                  <div>
                     <div class="relative mb-2  mt-2">
                       <select id="tags_id" name="tags_id[]" multiple class="mt-1 w-full">
-                        <option value="">Seleccionar Tag </option>
+                        <option value="">Seleccionar Marcas</option>
                         @foreach ($tags as $tag)
                           <option value="{{ $tag->id }}" @if (in_array($tag->id, $product->tags->pluck('id')->toArray())) selected @endif>
                             {{ $tag->name }}</option>
                         @endforeach
                       </select>
                     </div>
-                  </div> --}}
+                  </div>
                 </div>
               </div>
 
@@ -650,7 +650,7 @@
     }
         
     $('#tags_id').select2({
-      placeholder: 'Seleccionar Tag...',
+      placeholder: 'Seleccionar Marcas...',
     });
     // Obtener los enlaces de pestaña
     const generalTab = document.getElementById('general-tab');

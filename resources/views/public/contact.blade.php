@@ -3,7 +3,18 @@
 @section('css_importados')
 
 @stop
-
+<style>
+    .contacto h2 {
+        margin-top: 10px;  
+    }
+    ul {
+        list-style-type: disc!important; 
+        padding-left: 20px;   
+    }
+    li {
+        margin-left: 20px;  
+    }
+  </style>
 @section('content')
 
 
@@ -108,13 +119,13 @@
 
 
         <section>
-            <div class="flex flex-col gap-10 w-full px-[5%] py-10 md:py-20 bg-[#EBEDEF] mt-10 md:mt-20">
+            <div class="flex flex-col gap-10 w-full px-[5%] py-10 md:py-14 bg-[#EBEDEF] mt-10 md:mt-20">
                 
-                <div class="grid grid-cols-1 lg:grid-cols-5 gap-5 lg:gap-0">
+                <div class="grid grid-cols-1 lg:grid-cols-7 gap-5 lg:gap-10">
                     
-                    <div class="lg:col-span-2 flex flex-col justify-center">
+                    <div class="lg:col-span-7 flex flex-col justify-start">
 
-                        <div class="flex flex-col p-2 justify-center items-start gap-8">
+                        <div class="flex flex-col p-2 justify-center items-start gap-3">
                             <h2 class="text-[#052F4E] text-lg font-galano_regular">
                                 Información de contacto
                             </h2>
@@ -124,44 +135,36 @@
 
                     </div>
 
-                    <div class="lg:col-span-1 flex flex-col gap-10 justify-center items-start">
-                        <div class="flex flex-col">
-                            @if(!empty($general[0]->email))
-                                <h2 class="text-[#052F4E] text-xl font-galano_medium leading-none">Correo electrónico</h2>
-                                <div class="h-[2px] w-20 bg-[#C69671] my-2"></div>
-                                <h2 class="text-[#052F4E] text-xl font-galano_medium leading-none">{{ $general[0]->email }}</h2>
-                            @endif
-                        
-                            @if(!empty($general[0]->schedule))
-                                <p class="text-[#052F4E] text-sm font-galano_regular mt-1">{{ $general[0]->schedule }}</p>
-                            @endif
-                        </div>
-                        <div class="flex flex-col gap-1.5">
-                            @if(!empty($general[0]->cellphone) && !empty($general[0]->office_phone))
-                                <h2 class="text-[#052F4E] text-xl font-galano_medium leading-none">Teléfonos</h2>
-                                <div class="h-[2px] w-20 bg-[#C69671] my-2"></div>
-                            @endif
-
-                            @if(!empty($general[0]->cellphone))
-                                <div class="flex text-[#052F4E] text-sm font-galano_regular flex-row gap-2">
-                                    <span>Teléfono móvil:</span>
-                                    <h2 class="text-[#052F4E] text-xl font-galano_medium leading-none">{{ $general[0]->cellphone }}</h2>
+                    <div class="lg:col-span-2 flex flex-col gap-10 justify-start items-start">
+                        <div class="grid grid-cols-1">
+                            <div class="flex flex-col">
+                                <div class="text-[#052F4E] text-sm font-galano_regular mt-1 contacto">
+                                    {!!$general[0]->contacto!!}
                                 </div>
-                            @endif
-                        
-                            @if(!empty($general[0]->office_phone))
-                                <div class="flex text-[#052F4E] text-sm font-galano_regular flex-row gap-2">
-                                    <span>Teléfono fijo:</span>
-                                    <h2 class="text-[#052F4E] text-xl font-galano_medium leading-none">{{ $general[0]->office_phone }}</h2>
-                                </div>
-                            @endif
+                            </div>
                         </div>
                     </div>
 
-                    <div class="lg:col-span-2 flex flex-col sm:flex-row gap-5 sm:gap-10 lg:flex-col justify-around items-start lg:items-end">
-                        <img class="h-96 md:h-[350px] w-auto object-contain object-center" src="{{asset('images/imagen/imagenmapa.png')}}" />
+                    <div class="lg:col-span-3 flex flex-col gap-10 justify-start items-start">
+                        <div class="grid grid-cols-1">
+                            <div class="flex flex-col">
+                                <div class="text-[#052F4E] text-sm font-galano_regular mt-1 contacto">
+                                    {!!$general[0]->sedeslima!!}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
+
+                    <div class="lg:col-span-2 flex flex-col gap-10 justify-start items-start">
+                        <div class="grid grid-cols-1">
+                            <div class="flex flex-col">
+                                <div class="text-[#052F4E] text-sm font-galano_regular mt-1 contacto">
+                                    {!!$general[0]->sedesnacional!!}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -280,6 +283,26 @@
             </div>
         </section> --}}
 
+        {{-- <div class="flex flex-col gap-1.5">
+            @if(!empty($general[0]->cellphone) && !empty($general[0]->office_phone))
+                <h2 class="text-[#052F4E] text-xl font-galano_medium leading-none">Teléfonos</h2>
+                <div class="h-[2px] w-20 bg-[#C69671] my-2"></div>
+            @endif
+
+            @if(!empty($general[0]->cellphone))
+                <div class="flex text-[#052F4E] text-sm font-galano_regular flex-row gap-2">
+                    <span>Teléfono móvil:</span>
+                    <h2 class="text-[#052F4E] text-xl font-galano_medium leading-none">{{ $general[0]->cellphone }}</h2>
+                </div>
+            @endif
+        
+            @if(!empty($general[0]->office_phone))
+                <div class="flex text-[#052F4E] text-sm font-galano_regular flex-row gap-2">
+                    <span>Teléfono fijo:</span>
+                    <h2 class="text-[#052F4E] text-xl font-galano_medium leading-none">{{ $general[0]->office_phone }}</h2>
+                </div>
+            @endif
+        </div> --}}
     </main>
 
 

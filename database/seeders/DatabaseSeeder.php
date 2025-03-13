@@ -53,8 +53,8 @@ class DatabaseSeeder extends Seeder
             HomeViewSeeder::class,
             StrengthSeeder::class,
             ShortcodeSeeder::class,
-            
-            //ServiceSeeder::class,
+            ServiceSeeder::class,
+            BlogSeeder::class,
         ]);
         
     }

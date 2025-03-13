@@ -15,36 +15,26 @@ class ProjectSeeder extends Seeder
     {
         DB::table('projects')->insert([
             [
-                'titulo' => 'Nombre del proyecto aquí',
-                'descripcion' => 'Mauris euismod vehicula eros egestas venenatis. Vestibulum non pulvinar risus. Praesent hendrerit lectus ultrices purus consectetur, eu sollicitudin libero pretium.',
-                'imagen' => 'storage/images/imagen/fl85XXUtND_Ima2.png',
+                'titulo' => 'Sundae',
+                'descripcion' => '<p>Quisque pharetra aliquet nibh bibendum vestibulum. Praesent mollis velit at dui venenatis, eu egestas neque suscipit. Maecenas et molestie augue, et rutrum augue. Aliquam mattis urna et nisi dignissim mattis.</p>',
+                'imagen' => 'images/imagen/imagenhelado.png',
                 'status' => 1,
-                'created_at' => '2024-08-02 21:33:46',
-                'updated_at' => '2024-08-02 23:57:40',
+                'steps' => '<p><span style="font-size:22px"><strong>Pasos de receta:</strong></span></p>
+                <ul>
+                    <li>Mezclar con 3 litros de agua</li>
+                    <li>Verter sobre la maquina soft</li>
+                    <li>Esperar 15 min y servir.</li>
+                    <li>Decoraci&oacute;n:</li>
+                    <li>Utilizar la jalea afrutada de cualquier sabor y agregar un topping, de tal forma que se vea deseable y antojable.</li>
+                </ul>',
             ],
+        ]);
+
+        DB::table('ingredients')->insert([
             [
-                'titulo' => 'La oportunidad',
-                'descripcion' => 'Quisque pharetra aliquet nibh bibendum vestibulum. Praesent mollis velit at dui venenatis, eu egestas neque suscipit. Maecenas et molestie augue, et rutrum augue. Aliquam mattis urna et nisi dignissim mattis.',
-                'imagen' => 'storage/images/imagen/i4pfzlPd8d_Ima2.png',
-                'status' => 1,
-                'created_at' => '2024-08-02 21:33:56',
-                'updated_at' => '2024-08-03 00:22:01',
-            ],
-            [
-                'titulo' => 'Lo que hicimos',
-                'descripcion' => 'Quisque pharetra aliquet nibh bibendum vestibulum. Praesent mollis velit at dui venenatis, eu egestas neque suscipit. Maecenas et molestie augue, et rutrum augue. Aliquam mattis urna et nisi dignissim mattis.',
-                'imagen' => 'storage/images/imagen/i4pfzlPd8d_Ima2.png',
-                'status' => 1,
-                'created_at' => '2024-08-02 21:33:56',
-                'updated_at' => '2024-08-03 00:22:01',
-            ],
-            [
-                'titulo' => 'El resultado',
-                'descripcion' => 'Quisque pharetra aliquet nibh bibendum vestibulum. Praesent mollis velit at dui venenatis, eu egestas neque suscipit. Maecenas et molestie augue, et rutrum augue. Aliquam mattis urna et nisi dignissim mattis.',
-                'imagen' => 'storage/images/imagen/i4pfzlPd8d_Ima2.png',
-                'status' => 1,
-                'created_at' => '2024-08-02 21:33:56',
-                'updated_at' => '2024-08-03 00:22:01',
+                'project_id' => 1,
+                'titulo' => '1 Sobre de Mr Cremoso Premium',
+                'imagen' => 'images/imagen/imagenhelado.png',
             ],
         ]);
     }

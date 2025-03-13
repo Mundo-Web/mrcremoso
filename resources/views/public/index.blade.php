@@ -203,38 +203,38 @@
 
 
     <section>
-        <div class="flex flex-col gap-10 w-full px-[5%] pt-10 pb-10 lg:pb-0 bg-[#052F4E]">
+        <div class="flex flex-col gap-10 w-full px-[5%] pt-10 pb-10 lg:pb-0 bg-[#052F4E] mt-10 lg:mt-16">
             <h2 class="text-white font-maille text-text36 sm:text-4xl md:text-text44 leading-none text-center">
                 {{$textoshome->title3section ?? "Ingrese un texto"}}
             </h2>
-            <div class="grid grid-cols-2 lg:grid-cols-3 gap-0 lg:gap-0">
-                <div class="flex flex-col sm:flex-row gap-4 sm:gap-10 lg:flex-col justify-around">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 lg:gap-0">
+                <div class="flex flex-col gap-4 sm:gap-10 lg:flex-col justify-center">
 
                     <div class="flex flex-col gap-1 lg:gap-2 p-0 lg:p-2 max-w-xs relative">
                         <img class="w-10" src="{{asset('images/imagen/iconohelado.png')}}" />
-                        <h2 class="text-white text-base lg:text-2xl font-galano_medium">{{$textoshome->title4section ?? "Ingrese un texto"}}</h2>
-                        <h2 class="text-white text-xs lg:text-lg font-galano_regular"> {{$textoshome->description4section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-base md:text-lg lg:text-xl xl:text-2xl font-galano_medium leading-none sm:leading-normal">{{$textoshome->title4section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-xs md:text-sm lg:text-base xl:text-lg font-galano_regular"> {{$textoshome->description4section ?? "Ingrese un texto"}}</h2>
                         <img class="hidden xl:flex absolute h-[30px] w-auto object-contain -right-1/2 top-1/2 translate-y-1/2" src="{{asset('images/imagen/flecha1.png')}}" />
                     </div>
 
                     <div class="flex flex-col gap-1 lg:gap-2 p-0 lg:p-2 max-w-xs relative">
                         <img class="w-10" src="{{asset('images/imagen/iconohelado2.png')}}" />
-                        <h2 class="text-white text-base lg:text-2xl font-galano_medium">{{$textoshome->title5section ?? "Ingrese un texto"}}</h2>
-                        <h2 class="text-white text-xs lg:text-lg font-galano_regular"> {{$textoshome->description5section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-base md:text-lg lg:text-xl xl:text-2xl font-galano_medium leading-none sm:leading-normal">{{$textoshome->title5section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-xs md:text-sm lg:text-base xl:text-lg font-galano_regular"> {{$textoshome->description5section ?? "Ingrese un texto"}}</h2>
                         <img class="hidden xl:flex absolute h-[25px] w-auto object-contain -right-1/2 top-1/2 translate-y-1/2" src="{{asset('images/imagen/flecha2.png')}}" />
                     </div>
 
-                    <div class="flex flex-col gap-1 lg:gap-2 p-0 lg:p-2 max-w-xs relative lg:hidden">
+                    <div class="flex flex-col gap-1 lg:gap-2 p-0 lg:p-2 max-w-xs relative sm:hidden">
                         <img class="w-10" src="{{asset('images/imagen/iconohelado3.png')}}" />
-                        <h2 class="text-white text-base lg:text-2xl font-galano_medium">{{$textoshome->title6section ?? "Ingrese un texto"}}</h2>
-                        <h2 class="text-white text-xs lg:text-lg font-galano_regular"> {{$textoshome->description6section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-base md:text-lg lg:text-xl xl:text-2xl font-galano_medium leading-none sm:leading-normal">{{$textoshome->title6section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-xs md:text-sm lg:text-base xl:text-lg font-galano_regular"> {{$textoshome->description6section ?? "Ingrese un texto"}}</h2>
                         <img class="hidden xl:flex absolute h-[40px] w-auto object-contain -left-1/2 top-1/2 translate-y-1/2" src="{{asset('images/imagen/flecha3.png')}}" />
                     </div>
 
-                    <div class="flex flex-col gap-1 lg:gap-2 p-0 lg:p-2 max-w-xs relative lg:hidden">
+                    <div class="flex flex-col gap-1 lg:gap-2 p-0 lg:p-2 max-w-xs relative sm:hidden">
                         <img class="w-10" src="{{asset('images/imagen/iconohelado4.png')}}" />
-                        <h2 class="text-white text-base lg:text-2xl font-galano_medium">{{$textoshome->title7section ?? "Ingrese un texto"}}</h2>
-                        <h2 class="text-white text-xs lg:text-lg font-galano_regular"> {{$textoshome->description7section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-base md:text-lg lg:text-xl xl:text-2xl font-galano_medium leading-none sm:leading-normal">{{$textoshome->title7section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-xs md:text-sm lg:text-base xl:text-lg font-galano_regular"> {{$textoshome->description7section ?? "Ingrese un texto"}}</h2>
                         <img class="hidden xl:flex absolute h-[80px] w-auto object-contain -left-[130px] top-0 translate-y-0" src="{{asset('images/imagen/flecha4.png')}}" />
                     </div>
                     
@@ -243,8 +243,7 @@
                 <div class="flex flex-col justify-center sm:justify-end items-center">
                     <img class="h-[550px] lg:h-[550px] w-full object-contain object-bottom" src="{{asset($textoshome->url_image3section)}}"
                     onerror="this.onerror=null;this.src='{{ asset('images/imagen/mixto.png') }}';" alt="producto" />
-                    
-                    <div class="lg:hidden flex flex-row justify-start md:justify-center items-start -mt-10">
+                    <div class="lg:hidden flex flex-row justify-start md:justify-center items-start -mt-28">
                         <a href="#productoscarrusel"
                             class="text-[#052F4E] py-3 px-6 bg-white rounded-xl text-xs lg:text-base font-galano_regular font-semibold text-center max-w-xs mx-auto">
                             ¡Prueba la diferencia y dale un gusto a tu día!
@@ -252,18 +251,18 @@
                     </div>
                 </div>
 
-                <div class="sm:flex flex-col sm:flex-row gap-5 sm:gap-10 lg:flex-col justify-around items-start lg:items-end hidden">
+                <div class="sm:flex flex-col gap-5 sm:gap-10 lg:flex-col justify-center items-start lg:items-end hidden">
                     <div class="flex flex-col gap-2 p-2 max-w-xs relative">
                         <img class="w-10" src="{{asset('images/imagen/iconohelado3.png')}}" />
-                        <h2 class="text-white text-base lg:text-2xl font-galano_medium">{{$textoshome->title6section ?? "Ingrese un texto"}}</h2>
-                        <h2 class="text-white text-xs lg:text-lg font-galano_regular"> {{$textoshome->description6section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-base md:text-lg lg:text-xl xl:text-2xl font-galano_medium leading-none sm:leading-normal">{{$textoshome->title6section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-xs md:text-sm lg:text-base xl:text-lg font-galano_regular"> {{$textoshome->description6section ?? "Ingrese un texto"}}</h2>
                         <img class="hidden xl:flex absolute h-[40px] w-auto object-contain -left-1/2 top-1/2 translate-y-1/2" src="{{asset('images/imagen/flecha3.png')}}" />
                     </div>
 
                     <div class="flex flex-col gap-2 p-2 max-w-xs relative">
                         <img class="w-10" src="{{asset('images/imagen/iconohelado4.png')}}" />
-                        <h2 class="text-white text-base lg:text-2xl font-galano_medium">{{$textoshome->title7section ?? "Ingrese un texto"}}</h2>
-                        <h2 class="text-white text-xs lg:text-lg font-galano_regular"> {{$textoshome->description7section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-base md:text-lg lg:text-xl xl:text-2xl font-galano_medium leading-none sm:leading-normal">{{$textoshome->title7section ?? "Ingrese un texto"}}</h2>
+                        <h2 class="text-white text-xs md:text-sm lg:text-base xl:text-lg font-galano_regular"> {{$textoshome->description7section ?? "Ingrese un texto"}}</h2>
                         <img class="hidden xl:flex absolute h-[80px] w-auto object-contain -left-[130px] top-0 translate-y-0" src="{{asset('images/imagen/flecha4.png')}}" />
                     </div>
                 </div>
@@ -334,46 +333,48 @@
     <section>
         <div class="flex flex-col gap-10 w-full px-[5%] py-10 md:py-20 bg-white">
             
-            <div class="grid grid-cols-1 lg:grid-cols-5 gap-5 lg:gap-0">
-                <div class="lg:col-span-2 flex flex-col justify-center">
+            <div class="grid grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-0">
+                <div class="col-span-2 flex flex-col justify-center">
 
                     <div class="flex flex-col p-2 justify-center items-start gap-8">
                         <h2 class="text-[#052F4E] text-4xl md:text-5xl font-maille leading-none">{{$textoshome->title8section ?? "Ingrese un texto"}}</h2>
-                        <div class="flex flex-row justify-start items-start">
+                        <div class="flex flex-row justify-start items-start mx-auto sm:mx-0">
                             <a href="#productoscarrusel" id="scrollButton"
-                                class="text-white py-3 px-6 bg-[#052F4E] rounded-xl text-lg font-galano_light font-semibold text-center max-w-xs">
+                                class="text-white py-3 px-6 bg-[#052F4E] rounded-xl text-base lg:text-lg font-galano_light font-semibold text-center max-w-xs">
                                 {{$textoshome->one_description8section ?? "Ingrese un texto"}}
                             </a>
                         </div>
-                        <h2 class="text-[#052F4E] text-lg font-galano_regular">
+                        <h2 class="text-[#052F4E] text-base xl:text-lg font-galano_regular">
                             {{$textoshome->two_description8section ?? "Ingrese un texto"}}
                         </h2>
                     </div>
 
                 </div>
 
-                <div class="lg:col-span-2 flex flex-col justify-end items-center">
-                    <img class="h-96 md:h-[550px] w-full object-contain object-center" src="{{asset('images/imagen/heladobeneficios.png')}}"
+                <div class="col-span-2 flex flex-col justify-end items-center">
+                    <img class="h-96 md:h-[550px] w-full object-contain object-center" src="{{asset('images/imagen/heladoestadistica.png')}}"
                         onerror="this.onerror=null;this.src='{{ asset('images/imagen/noimagen.jpg') }}';" />
                 </div>
 
-                <div class="lg:col-span-1 flex flex-col sm:flex-row gap-5 sm:gap-10 lg:flex-col justify-around items-start lg:items-end">
-                    <div class="flex flex-col pl-2 max-w-xs text-left md:text-right">
-                        <h3 class="text-[#052F4E] text-6xl font-galano_bold">{{$benefit[0]->descripcionshort ?? "Ingrese texto"}}</h3>
-                        <h2 class="text-[#052F4E] text-xl font-galano_medium leading-none">{{$benefit[0]->titulo ?? "Ingrese texto"}}</h2>
-                        <p class="text-[#052F4E] text-sm font-galano_regular">{{$benefit[0]->descripcion ?? "Ingrese texto"}}</p>
-                    </div>
-
-                    <div class="flex flex-col pl-2 max-w-xs text-left md:text-right">
-                        <h3 class="text-[#052F4E] text-6xl font-galano_bold">{{$benefit[1]->descripcionshort ?? "Ingrese texto"}}</h3>
-                        <h2 class="text-[#052F4E] text-xl font-galano_medium leading-none">{{$benefit[1]->titulo ?? "Ingrese texto"}}</h2>
-                        <p class="text-[#052F4E] text-sm font-galano_regular">{{$benefit[1]->descripcion ?? "Ingrese texto"}}</p>
-                    </div>
-
-                    <div class="flex flex-col pl-2 max-w-xs text-left md:text-right">
-                        <h3 class="text-[#052F4E] text-6xl font-galano_bold">{{$benefit[2]->descripcionshort ?? "Ingrese texto"}}</h3>
-                        <h2 class="text-[#052F4E] text-xl font-galano_medium leading-none">{{$benefit[2]->titulo ?? "Ingrese texto"}}</h2>
-                        <p class="text-[#052F4E] text-sm font-galano_regular">{{$benefit[2]->descripcion ?? "Ingrese texto"}}</p>
+                <div class="col-span-2 lg:col-span-1 flex flex-col sm:flex-row gap-5 sm:gap-10 lg:flex-col justify-around items-start lg:items-end">
+                    <div class="grid grid-cols-2 lg:grid-cols-1 gap-2 xl:gap-4">
+                       @foreach ($benefit as $beneficio)
+                            @if($beneficio->link1)
+                                <a href="{{$beneficio->link1}}">
+                                    <div class="flex flex-col pl-2 max-w-xs text-left xl:text-right">
+                                        <h3 class="text-[#052F4E] text-4xl font-galano_bold">{{$beneficio->descripcionshort ?? "Ingrese texto"}}</h3>
+                                        <h2 class="text-[#052F4E] text-sm 3xs:text-base md:text-lg font-galano_medium leading-none">{{$beneficio->titulo ?? "Ingrese texto"}}</h2>
+                                        <p class="text-[#052F4E] text-xs 3xs:text-sm md:text-sm font-galano_regular !leading-none mt-2">{{$beneficio->descripcion ?? "Ingrese texto"}}</p>
+                                    </div>
+                                </a>
+                            @else
+                                <div class="flex flex-col pl-2 max-w-xs text-left xl:text-right">
+                                    <h3 class="text-[#052F4E] text-4xl font-galano_bold">{{$beneficio->descripcionshort ?? "Ingrese texto"}}</h3>
+                                    <h2 class="text-[#052F4E] text-sm 3xs:text-base md:text-lg font-galano_medium leading-none">{{$beneficio->titulo ?? "Ingrese texto"}}</h2>
+                                    <p class="text-[#052F4E] text-xs 3xs:text-sm md:text-sm font-galano_regular !leading-none mt-2">{{$beneficio->descripcion ?? "Ingrese texto"}}</p>
+                                </div>
+                            @endif
+                       @endforeach
                     </div>
                 </div>
                 
@@ -397,11 +398,19 @@
                                     <div class="swiper-wrapper">
                                         @foreach ($testimonie as $testimony)
                                         <div class="swiper-slide">
-                                            <div class="flex flex-col gap-2 p-3 bg-white rounded-xl line-clamp-5">
-                                                <h2 class="text-[#052F4E] text-sm font-galano_regular">
-                                                    {{$testimony->testimonie}}
-                                                </h2>
-                                                <h2 class="text-[#052F4E] text-lg font-galano_medium leading-none">{{$testimony->name}}</h2>
+                                            <div class="flex flex-col gap-2 p-2 bg-white rounded-xl">
+                                                @if ($testimony->video)
+                                                    <div class="w-full rounded-xl overflow-hidden video-container relative" controls>
+                                                        <div class="absolute top-0 left-0 size-full poster-container">
+                                                            <img class="w-full h-full object-cover size-full" src="https://i.ytimg.com/vi/{{ $testimony->video }}/hq720.jpg" onerror="this.onerror=null;this.src='{{ asset('images/img/noimagen.jpg') }}';"/>
+                                                        </div>
+                                                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 play-icon-container cursor-pointer group-hover:scale-110 transition-transform duration-300"><img src="{{ asset('images/imagen/iconoplay.png') }}"/></div>
+                                                        <iframe width="100%" height="250px" class="youtube-video rounded-xl overflow-hidden" src="https://www.youtube.com/embed/{{ $testimony->video }}"
+                                                            frameborder="0"
+                                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                            allowfullscreen></iframe>
+                                                    </div>
+                                                @endif
                                             </div>  
                                         </div>
                                         @endforeach
@@ -409,7 +418,7 @@
                                     <div class="swiper-testimonios !flex justify-center py-3 mt-3"></div>
                                 </div>
                         </div>
-                        <a href="{{route('rse')}}" class="bg-[#052F4E] text-white px-6 py-2.5 rounded-xl font-galano_medium mt-2"> Ver más historias </a>
+                        <a id="abrirgaleria" class="bg-[#052F4E] text-white px-6 py-2.5 rounded-xl font-galano_medium mt-2"> Ver más historias </a>
                     </div>
                     <div class="md:col-span-1 space-y-3">
                         <h2 class="text-[#052F4E] text-5xl font-galano_bold max-w-xl leading-none">
@@ -451,8 +460,106 @@
         </div>
     @endif
 
+    <div id="modalgaleria" class="modal" style="max-width: 900px !important; width: 100% !important;  ">
+        <div class="p-4 flex flex-col gap-2">
+            <h1 class="font-galano_bold text-2xl lg:text-3xl text-center">Testimonios</h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                @foreach ($testimonie as $testimony)
+                    @if ($testimony->imagen)
+                        <img class="w-auto h-[300px] max-h-96 object-contain object-center mx-auto" src="{{$testimony->imagen}}"/>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    </div>
+
 
 @section('scripts_importados')
+    
+    <script>
+        $(document).on('click', '#abrirgaleria', function() {
+            $('#modalgaleria').modal({
+                show: true,
+                fadeDuration: 400,
+            })
+        })
+        
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const videoContainers = document.querySelectorAll('.video-container');
+
+            videoContainers.forEach(container => {
+                const playIcon = container.querySelector('.play-icon-container');
+                const poster = container.querySelector('.poster-container');
+                const iframe = container.querySelector('.youtube-video');
+                
+                playIcon.addEventListener('click', () => {
+
+                    pauseAllVideos();
+                    // Oculta el ícono y el póster
+                    playIcon.style.display = 'none';
+                    poster.style.display = 'none';
+
+                    // Agrega autoplay al iframe
+                    const src = iframe.getAttribute('src');
+                    iframe.setAttribute('src', src + (src.includes('?') ? '&autoplay=1' : '?autoplay=1'));
+                });
+            });
+
+            var swiper = new Swiper(".testimonios", {
+                slidesPerView: 2,
+                spaceBetween: 25,
+                loop: true,
+                grabCursor: true,
+                centeredSlides: false,
+                initialSlide: 0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-testimonios",
+                    clickable: true
+                },
+
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 25,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 25,
+                    }
+                },
+                on: {
+                        slideChange: function () {
+                            pauseAllVideos();
+                        },
+                }
+            });
+
+            function pauseAllVideos() {
+                videoContainers.forEach(container => {
+                    const playIcon = container.querySelector('.play-icon-container');
+                    const poster = container.querySelector('.poster-container');
+                    const iframe = container.querySelector('.youtube-video');
+
+                    // Reiniciar iframe src para pausar video
+                    const src = iframe.getAttribute('src');
+                    iframe.setAttribute('src', src.replace(/&?autoplay=1/, ''));
+
+                    // Restaurar ícono y póster
+                    playIcon.style.display = 'flex';
+                    poster.style.display = 'block';
+                   
+                });
+            }
+
+            
+        });
+    </script>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const popup = document.getElementById('welcome-popup');
@@ -508,7 +615,7 @@
 
         })
     </script>
-
+    
     <script>
 
          var swiper = new Swiper(".slider", {
@@ -578,34 +685,6 @@
             },
         });
 
-
-        var swiper = new Swiper(".testimonios", {
-            slidesPerView: 2,
-            spaceBetween: 25,
-            loop: true,
-            grabCursor: true,
-            centeredSlides: false,
-            initialSlide: 0,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            pagination: {
-                el: ".swiper-testimonios",
-                clickable: true
-            },
-
-            breakpoints: {
-                0: {
-                    slidesPerView: 1,
-                    spaceBetween: 25,
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 25,
-                }
-            },
-        });
 
         var swiper = new Swiper(".otrasmarcas", {
             slidesPerView: 4,

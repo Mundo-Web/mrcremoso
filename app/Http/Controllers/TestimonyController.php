@@ -7,6 +7,9 @@ use App\Http\Requests\StoreTestimonyRequest;
 use App\Http\Requests\UpdateTestimonyRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
+use Illuminate\Support\Facades\File;
 
 class TestimonyController extends Controller
 {
@@ -30,6 +33,35 @@ class TestimonyController extends Controller
         return view('pages.testimonies.create');
     }
 
+    public function saveImg($file, $route, $nombreImagen)
+    {
+        $manager = new ImageManager(new Driver());
+        $img = $manager->read($file);
+        // $img->coverDown(672, 700, 'center');
+        if (!file_exists($route)) {
+            mkdir($route, 0777, true); // Se crea la ruta con permisos de lectura, escritura y ejecución
+        }
+        $img->save($route . $nombreImagen);
+    }
+
+    private function getYTVideoId($url)
+    {
+        $patterns = [
+            '/(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/', // URL estándar
+            '/(?:https?:\/\/)?(?:www\.)?youtu\.be\/([a-zA-Z0-9_-]+)/', // URL corta
+            '/(?:https?:\/\/)?(?:www\.)?youtube\.com\/embed\/([a-zA-Z0-9_-]+)/', // URL embebida
+            '/(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)(?:&.*)?/', // URL estándar con parámetros adicionales
+            '/(?:https?:\/\/)?(?:www\.)?youtube\.com\/shorts\/([a-zA-Z0-9_-]+)/', // URL de Shorts
+        ];
+
+        foreach ($patterns as $pattern) {
+            if (preg_match($pattern, $url, $matches)) {
+            return $matches[1];
+            }
+        }
+        return null;
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -37,11 +69,24 @@ class TestimonyController extends Controller
     {
         $testimony = new Testimony(); 
 
-        $testimony->name = $request->name;
-        $testimony->ocupation = $request->ocupation;
-        $testimony->testimonie = $request->testimonie;
+        // $testimony->name = $request->name;
+        // $testimony->ocupation = $request->ocupation;
+        // $testimony->testimonie = $request->testimonie;
+        $url = $request->video;
+        $testimony->video = $this->getYTVideoId($url);
+
         $testimony->status = 1;
         $testimony->visible = 1;
+
+        if ($request->hasFile('imagen')) {
+            $file = $request->file('imagen');
+            $routeImg = 'storage/images/testimony/';
+            $nombreImagen = Str::random(10) . '_' . $file->getClientOriginalName();
+
+            $this->saveImg($file, $routeImg, $nombreImagen);
+
+            $testimony->imagen = $routeImg . $nombreImagen;
+        }
 
         $testimony->save();
        
@@ -74,13 +119,27 @@ class TestimonyController extends Controller
         $testimony = Testimony::findOrfail($id); 
 
         // $testimony->name = $request->name;
-        // $testimony->email = $request->email;
         // $testimony->ocupation = $request->ocupation;
         // $testimony->testimonie = $request->testimonie;
-        // $testimony->ocupation = $request->ocupation;
-        // $testimony->status = $request->status;
 
-        $testimony->update($request->all());
+        if ($request->hasFile('imagen')) {
+            $file = $request->file('imagen');
+            $routeImg = 'storage/images/testimony/';
+            $nombreImagen = Str::random(10) . '_' . $file->getClientOriginalName();
+      
+            if ($testimony->imagen) {
+                File::delete($testimony->url_image . $testimony->name_image);
+            }
+      
+            $this->saveImg($file, $routeImg, $nombreImagen);
+      
+            $testimony->imagen = $routeImg . $nombreImagen;
+        }
+
+        $url = $request->video;
+        $testimony->video = $this->getYTVideoId($url);
+
+        // $testimony->update($request->all());
 
         $testimony->save();
 

@@ -25,6 +25,17 @@
       right: 116px !important;
     }
   }
+
+
+  ul {
+      list-style-type: disc!important; 
+      padding-left: 20px;   
+  }
+  li {
+      margin-bottom: 10px;  
+      margin-left: 20px;  
+  }
+   
 </style>
 
 @section('content')
@@ -71,7 +82,7 @@
 
     <section class="flex flex-col gap-5 pt-12 xl:pt-16">
         <div class="grid grid-cols-1 xl:grid-cols-2 w-full gap-10 lg:gap-24 px-[5%] pb-12 xl:pb-16">
-            <div class="flex flex-col justify-start gap-5">
+            <div class="flex flex-col justify-center gap-5">
               <h1
                     class="text-[#052F4E] font-galano_bold tracking-tighter text-3xl md:text-5xl leading-none">
                     {{$nosotros[2]->titulo ?? "Ingrese texto" }}
@@ -89,16 +100,143 @@
             </div>
         </div>
     </section>
+    
+    {{-- --------- --}}
+
+    <section class="pt-12 xl:pt-16 px-[5%]">
+      <div class="grid grid-cols-1 xl:grid-cols-2 w-full gap-12 xl:gap-16">
+          <div class="flex flex-col justify-center items-center">
+              <img src="{{ asset($nosotros[3]->imagen) }}" onerror="this.onerror=null;this.src='{{ asset('images/imagen/cremosonosotros.png') }}';" class="object-cover" />
+          </div>
+        
+          <div class="flex flex-col justify-center gap-5 lg:gap-7">
+              <h1
+                  class="text-[#052F4E] font-galano_bold tracking-tighter text-3xl md:text-5xl leading-none">
+                  {{$nosotros[3]->titulo ?? "Ingrese texto" }}
+              </h1>
+              <div class="text-[#052F4E] text-lg font-galano_regular">
+                  {!! $nosotros[3]->descripcion ?? "Ingrese texto" !!}
+              </div>
+          </div>
+      </div>
+    </section>
+
+
+    @if ($logos->isEmpty())
+    @else
+            <section class="py-6 bg-[#052F4E] mt-12 xl:mt-16 w-full px-[5%]">
+                <div class="max-w-[700px] mx-auto pb-6">
+                    <h2 class="text-white text-center font-galano_bold tracking-tighter text-3xl md:text-5xl leading-none">
+                        Aliados Comerciales
+                    </h2>
+                </div>
+
+                <div class="w-full mx-auto max-w-5xl relative">
+                    <div class="swiper marcas h-max">
+                        <div class="swiper-wrapper items-center ">
+                            @foreach ($logos as $logo)
+                                <div class="swiper-slide">
+                                    <div class="flex justify-center items-center">
+                                        <img src="{{ asset($logo->price) }}" alt="logo" />
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="swiper-logos-prev absolute top-1/2 -translate-y-1/2 -left-2 lg:-left-16 z-20 bg-[#052F4E] border-white  rounded-full"><i class="fa-solid fa-circle-chevron-left text-5xl text-white"></i></div>
+                    <div class="swiper-logos-next absolute top-1/2 -translate-y-1/2 -right-2 lg:-right-16 z-20 bg-[#052F4E] border-white  rounded-full"><i class="fa-solid fa-circle-chevron-right text-5xl text-white"></i></div>
+                </div>
+            </section>
+    @endif
+
+
+    <section class="flex flex-col gap-5 pt-12 xl:pt-16">
+        <div class="grid grid-cols-1 xl:grid-cols-2 w-full gap-10 lg:gap-24 px-[5%] pb-12 xl:pb-16">
+            <div class="flex flex-col justify-center gap-5">
+              <h1
+                    class="text-[#052F4E] font-galano_bold tracking-tighter text-3xl md:text-5xl leading-none">
+                    {{$nosotros[4]->titulo ?? "Ingrese texto" }}
+              </h1>
+
+              <div class="text-[#052F4E] text-lg font-galano_regular">
+                  {!! $nosotros[4]->descripcion ?? "Ingrese texto" !!}
+              </div>
+              
+            </div>
+
+            <div class="flex flex-col justify-center items-center">
+
+                <img src="{{ asset($nosotros[4]->imagen) }}" onerror="this.onerror=null;this.src='{{ asset('images/imagen/cremosonosotros2.png') }}';" />
+            </div>
+        </div>
+    </section>
+
+
+    <section class="pt-12 xl:pt-16 px-[5%]">
+      <div class="grid grid-cols-1 xl:grid-cols-2 w-full gap-12 xl:gap-16">
+          <div class="flex flex-col justify-center items-center">
+              <img src="{{ asset($nosotros[5]->imagen) }}" onerror="this.onerror=null;this.src='{{ asset('images/imagen/cremosonosotros.png') }}';" class="object-cover" />
+          </div>
+        
+          <div class="flex flex-col justify-center gap-5 lg:gap-7">
+              <h1
+                  class="text-[#052F4E] font-galano_bold tracking-tighter text-3xl md:text-5xl leading-none">
+                  {{$nosotros[5]->titulo ?? "Ingrese texto" }}
+              </h1>
+              <div class="text-[#052F4E] text-lg font-galano_regular">
+                  {!! $nosotros[5]->descripcion ?? "Ingrese texto" !!}
+              </div>
+          </div>
+      </div>
+    </section>
+
+  {{-- ------ --}}
+
+
+    @if ($certificaciones->isEmpty())
+    @else
+              <section class="py-6 lg:py-10 bg-[#052F4E] mt-12 xl:mt-16 w-full px-[5%]">
+                  <div class="max-w-[700px] mx-auto pb-6">
+                      <h2 class="text-white text-center font-galano_bold tracking-tighter text-3xl md:text-5xl leading-none">
+                          Certificaciones
+                      </h2>
+                  </div>
+
+                  <div class="w-full mx-auto max-w-5xl relative">
+                      <div class="swiper certificaciones h-max">
+                          <div class="swiper-wrapper items-center ">
+                              @foreach ($certificaciones as $cartificacion)
+                                  <div class="swiper-slide">
+                                      <div class="flex flex-col justify-center items-center gap-3 bg-white rounded-2xl px-7 py-5">
+                                          <img src="{{ asset($cartificacion->url_image) }}" alt="logo" class="w-28 h-28 object-contain" />
+                                          <h2 class="text-[#052F4E] text-center font-galano_bold tracking-tighter text-2xl leading-none">
+                                            {{$cartificacion->title}}
+                                          </h2>
+                                          <p class="text-[#052F4E] text-center font-galano_regular tracking-tighter text-base">
+                                            {{$cartificacion->description}}
+                                          </p>
+                                      </div>
+                                  </div>
+                              @endforeach
+                          </div>
+                      </div>
+                      <div class="swiper-certificacion-prev absolute top-1/2 -translate-y-1/2 -left-2 lg:-left-16 z-20 bg-[#052F4E] border-white  rounded-full"><i class="fa-solid fa-circle-chevron-left text-5xl text-white"></i></div>
+                      <div class="swiper-certificacion-next absolute top-1/2 -translate-y-1/2 -right-2 lg:-right-16 z-20 bg-[#052F4E] border-white  rounded-full"><i class="fa-solid fa-circle-chevron-right text-5xl text-white"></i></div>
+                  </div>
+              </section>
+      @endif
+
+
 
 
     <section class="flex flex-col gap-5 px-[5%] my-10 lg:my-16">
         <div class="grid grid-cols-1 xl:grid-cols-2 w-full  bg-[#EBEDEF] px-[5%] gap-0 lg:gap-16 rounded-xl">
             <div class="flex flex-col justify-center items-start gap-3 py-12 xl:py-16">
                 <h1 class="text-[#052F4E] font-galano_semibold tracking-tight text-3xl leading-none">
-                    {{$nosotros[3]->titulo ?? "Ingrese texto" }}
+                    {{$nosotros[6]->titulo ?? "Ingrese texto" }}
                 </h1>
                 <div class="text-[#052F4E] text-lg font-galano_regular">
-                  {!! $nosotros[3]->descripcion ?? "Ingrese texto" !!}
+                  {!! $nosotros[6]->descripcion ?? "Ingrese texto" !!}
                 </div>
                 <div class="flex flex-row justify-start items-start">
                     <a href="{{route('catalogo.all')}}"
@@ -108,117 +246,12 @@
                 </div>
             </div>
             <div class="flex flex-col justify-center items-center">
-                <img src="{{ asset($nosotros[3]->imagen) }}" onerror="this.onerror=null;this.src='{{ asset('images/imagen/conoscremoso.png') }}';" class="object-cover" />
+                <img src="{{ asset($nosotros[6]->imagen) }}" onerror="this.onerror=null;this.src='{{ asset('images/imagen/conoscremoso.png') }}';" class="object-cover" />
             </div>
         </div>
     </section>
 
 
-    {{-- <section>
-            
-      @if ($nosotros->isEmpty())
-          
-      @else
-          <div class="w-11/12 mx-auto flex flex-col gap-8 my-5 lg:my-16 ">
-              @foreach ($nosotros as $item)
-              <div>
-                  <h2 class="text-[#082252] font-roboto font-bold text-4xl lg:text-text48 leading-none">{{$item->titulo}}</h2>
-                  <div class="text-[#082252] font-roboto font-normal text-text18 mt-3">
-                          {!!$item->descripcion!!}
-                  </div>
-              </div>
-              @endforeach
-          </div>
-      @endif
-
-  </section> --}}
-
-
-    {{-- seccion Ultimos Productos  --}}
-
-    {{-- <section class="w-full px-[8%] py-10 lg:py-20 ">
-      <div class="flex flex-col md:flex-col  w-full gap-3" data-aos="zoom-out-left">
-        <h1 class="text-[22px] md:text-3xl font-semibold font-Inter_Medium  text-[#006BF6]">Sobre nosotros</h1>
-        <h1 class="text-[48px] md:text-3xl font-semibold font-Inter_Medium  text-[#333333] mt-3">{{ $nosotros[2]->titulo }}
-        </h1>
-
-
-      </div>
-      <div class="mt-6  text-justify grid grid-cols-1" id="Aboutus">
-        <div class="col-span-1 text-[18px]">{!! $nosotros[2]->descripcion !!}</div>
-        <div><img src="{{ asset($nosotros[2]->imagen) }}" alt=""></div>
-      </div>
-
-    </section> --}}
-
-
-
-    {{-- seccion Productos populares  --}}
-
-    {{-- <section class=" bg-[#F8F8F8]">
-      <div class="w-full px-[5%] py-14 lg:py-20" data-aos="fade-down-left">
-        <div class="pl-10 flex flex-col md:flex-row justify-between w-full gap-3">
-          <h1 class="text-2xl md:text-3xl font-semibold font-Inter_Medium text-[#323232]">Misión</h1>
-          <div class="flex  flex-col md:flex-row gap-2 md:gap-8">
-              <a href="/catalogo" class="flex items-center   font-Inter_Medium  hover:text-[#006BF6] ">Todos</a>
-              @foreach ($categoriasAll as $item)
-                <a href="/catalogo/{{ $item->id }}"
-                  class="flex items-center font-Inter_Medium  hover:text-[#006BF6]  transition ease-out duration-300 transform  ">{{ $item->name }}
-                </a>
-              @endforeach
-            </div>
-        </div> --}}
-
-        {{-- <div class="grid grid-cols-1 md:grid-cols-2  gap-16 mt-14 w-full px-10 ">
-          <div><img src="{{ asset($nosotros[0]->imagen) }}" alt=""></div>
-          <div class="flex flex-col content-center text-center justify-center gap-16">
-            <div class="flex flex-col items-center justify-center">
-              <div class="rounded-full w-10 h-10 bg-[#006BF5] flex items-center justify-center mb-4">
-                <img src="images/idea.png" alt="">
-              </div>
-              <h1 class="text-2xl md:text-3xl font-semibold font-Inter_Medium text-[#323232]">Nuestra Misión</h1>
-              <div class="text-justify">{!! $nosotros[0]->descripcion !!}</div>
-            </div>
-
-
-            <div class="flex flex-col items-center justify-center">
-              <div class="rounded-full w-10 h-10 bg-[#006BF5] flex items-center justify-center"><img src="images/idea.png"
-                  alt="">
-              </div>
-              <h1 class="text-2xl md:text-3xl font-semibold font-Inter_Medium text-[#323232]">Nuestra Visión</h1>
-              <div class=" text-justify">{!! $nosotros[3]->descripcion !!}</div>
-            </div>
-
-
-          </div>
-
-        </div>
-
-      </div>
-    </section> --}}
-
-
-
-    {{-- <section class="w-full px-[5%] py-7 lg:py-14" data-aos="fade-up" data-aos-offset="150">
-      <div class="grid grid-cols-1 md:grid-cols-2 w-full">
-        <div class=" flex flex-col md:flex-col  w-full gap-3 px-10">
-          <h1 class="text-[22px] md:text-3xl font-semibold font-Inter_Medium  text-[#006BF6]">Nuestro sello de Garantia
-          </h1>
-          <h1 class="text-[48px] md:text-3xl font-semibold font-Inter_Medium  text-[#006BF6] mb-3">
-
-            {{ $nosotros[1]->titulo }}
-          </h1>
-          <div class=" flex flex-col align-items-end  text-justify">{!! $nosotros[1]->descripcion !!}</div>
-
-        </div>
-
-        <div class="px-10"><img src="{{ asset($nosotros[1]->imagen) }}" alt="" class="object-cover"></div>
-
-
-      </div>
-
-
-    </section> --}}
 
 
     {{-- @if ($benefit->count() > 0)
@@ -241,29 +274,83 @@
 
   </main>
 
-  {{-- modalOfertas --}}
-
-
-
-  <!-- Modal toggle -->
-
 
   <!-- Main modal -->
   {{-- 
-  <div id="modalofertas" class="modal">
+    <div id="modalofertas" class="modal">
 
-    <!-- Modal body -->
-    <div class="p-1 ">
-      <x-swipper-card-ofertas :items="$popups" id="modalOfertas" />
-    </div>
-
-
-  </div> --}}
+      <!-- Modal body -->
+      <div class="p-1 ">
+        <x-swipper-card-ofertas :items="$popups" id="modalOfertas" />
+      </div>
+    </div> 
+  --}}
 
 
 @section('scripts_importados')
 
   <script>
+    
+    var swiper = new Swiper(".marcas", {
+            slidesPerView: 6,
+            spaceBetween: 30,
+            centeredSlides: false,
+            initialSlide: 0,
+            loop: true,
+            autoplay: {
+                delay: 1500,
+                disableOnInteraction: false,
+            },
+             navigation: {
+                nextEl: ".swiper-logos-next",
+                prevEl: ".swiper-logos-prev",
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 2,
+                    centeredSlides: true,
+                },
+                768: {
+                    slidesPerView: 3,
+                    centeredSlides: false,
+                },
+                1024: {
+                    slidesPerView: 6,
+                    centeredSlides: false,
+                },
+            },
+     });
+
+     var swiper = new Swiper(".certificaciones", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            centeredSlides: false,
+            initialSlide: 0,
+            loop: true,
+            autoplay: {
+                delay: 1500,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-certificacion-next",
+                prevEl: ".swiper-certificacion-prev",
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    centeredSlides: true,
+                },
+                768: {
+                    slidesPerView: 2,
+                    centeredSlides: false,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    centeredSlides: false,
+                },
+            },
+     });
+
     function calcularTotal() {
       let articulos = Local.get('carrito')
       let total = articulos.map(item => {

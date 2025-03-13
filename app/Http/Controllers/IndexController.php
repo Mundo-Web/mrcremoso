@@ -256,9 +256,11 @@ class IndexController extends Controller
   public function nosotros()
   {
     $nosotros = AboutUs::all();
+    $logos = Banners::where('status', '=', 1)->where('visible', '=', 1)->get();
+    $certificaciones = ClientLogos::where('status', '=', 1)->get();
     $benefit = Strength::where('status', '=', 1)->take(3)->get();
 
-    return view('public.nosotros', compact('nosotros', 'benefit'));
+    return view('public.nosotros', compact('nosotros', 'benefit', 'logos','certificaciones'));
   }
 
 
@@ -853,7 +855,7 @@ class IndexController extends Controller
 
     // $productos = Products::where('id', '=', $id)->first();
     // $especificaciones = Specifications::where('product_id', '=', $id)->get();
-    $product = Products::with(['discount'])->findOrFail($id);
+    $product = Products::with(['discount','tags'])->findOrFail($id);
     $especificaciones = Specifications::where('product_id', '=', $id)
       ->where(function ($query) {
         $query->whereNotNull('tittle')
@@ -1425,7 +1427,7 @@ class IndexController extends Controller
   { 
 
     try {
-      $categorias = Category::where('status', '=', 1)->where('visible', '=', 1)->get();
+      $categorias = Category::where('status', '=', 1)->where('visible', '=', 1)->whereHas('blogs') ->get();
       $textoshome = HomeView::where('id', 1)->first();
       
       if ($filtro == 0) {

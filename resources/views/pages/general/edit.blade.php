@@ -261,7 +261,7 @@
                                 </div>
                               </div>
 
-                              {{-- <div>
+                              <div>
                                 <label for="youtube">Youtube</label>
 
                                 <div class="relative ">
@@ -279,9 +279,9 @@
                                     class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="Youtube">
                                 </div>
-                              </div> --}}
+                              </div>
 
-                              <div>
+                              {{-- <div>
                                 <label for="twitter">Twitter</label>
 
                                 <div class="relative">
@@ -299,7 +299,8 @@
                                     class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="Twitter">
                                 </div>
-                              </div>
+                              </div> --}}
+
                               <div>
                                 <label for="linkedin">Linkedin</label>
 
@@ -319,7 +320,8 @@
                                     placeholder="Linkedin">
                                 </div>
                               </div>
-                              {{-- <div>
+                              
+                              <div>
                                 <label for="tiktok">Tiktok</label>
 
                                 <div class="relative">
@@ -337,7 +339,7 @@
                                     class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="Tiktok">
                                 </div>
-                              </div> --}}
+                              </div>
                             </div>
                           </div>
 
@@ -544,6 +546,36 @@
                             </div>
                           </div>
 
+
+                          <div class="md:col-span-5">
+                            <label for="contacto">Datos de contacto - General</label>
+                            <div class="relative mb-2 mt-2">
+                              <textarea type="text" rows="2" id="contacto" name="contacto"
+                                class="ckeditor mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Datos de contacto">{!! $general->contacto !!}</textarea>
+                            </div>
+                          </div>
+
+
+                          <div class="md:col-span-5">
+                            <label for="sedeslima">Sedes Lima</label>
+                            <div class="relative mb-2 mt-2">
+                              <textarea type="text" rows="2" id="sedeslima" name="sedeslima"
+                                class="ckeditor mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Datos de sedes en lima">{!! $general->sedeslima !!}</textarea>
+                            </div>
+                          </div>
+
+
+                          <div class="md:col-span-5">
+                            <label for="sedesnacional">Sedes a nivel Nacional</label>
+                            <div class="relative mb-2 mt-2">
+                              <textarea type="text" rows="2" id="sedesnacional" name="sedesnacional"
+                                class="ckeditor mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Datos de sedes a nivel nacional">{!! $general->sedesnacional !!}</textarea>
+                            </div>
+                          </div>
+
                           
                           <!-- <div class="md:col-span-2">
                                             <label for="city">City</label>
@@ -651,6 +683,62 @@
 
     });
   </script>
+  <script src="/ckeditor/ckeditor.js"></script>
+  <script>
+    CKEDITOR.replace('contacto', {
+          toolbar: [
+              { name: 'document', items: ['Source'] }, // Código fuente
+              { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo'] },
+              { name: 'styles', items: ['Styles', 'Format', 'FontSize'] }, // Tamaño y fuente
+              { name: 'colors', items: ['TextColor', 'BGColor'] }, // Color de texto y fondo
+              { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat'] },
+              { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Blockquote'] },
+              { name: 'insert', items: ['Table', 'HorizontalRule'] },
+              { name: 'links', items: ['Link', 'Unlink'] },
+              { name: 'tools', items: ['Maximize'] } // Maximizar
+          ],
+          extraPlugins: 'colorbutton,font', // Activa plugins para color y fuentes
+          removePlugins: 'elementspath', // Elimina la ruta de elementos
+          resize_enabled: true // Permite redimensionar el editor
+      });
+  </script>
 
+<script>
+  CKEDITOR.replace('sedeslima', {
+        toolbar: [
+            { name: 'document', items: ['Source'] }, // Código fuente
+            { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo'] },
+            { name: 'styles', items: ['Styles', 'Format', 'FontSize'] }, // Tamaño y fuente
+            { name: 'colors', items: ['TextColor', 'BGColor'] }, // Color de texto y fondo
+            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat'] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Blockquote'] },
+            { name: 'insert', items: ['Table', 'HorizontalRule'] },
+            { name: 'links', items: ['Link', 'Unlink'] },
+            { name: 'tools', items: ['Maximize'] } // Maximizar
+        ],
+        extraPlugins: 'colorbutton,font', // Activa plugins para color y fuentes
+        removePlugins: 'elementspath', // Elimina la ruta de elementos
+        resize_enabled: true // Permite redimensionar el editor
+    });
+</script>
+
+<script>
+  CKEDITOR.replace('sedesnacional', {
+        toolbar: [
+            { name: 'document', items: ['Source'] }, // Código fuente
+            { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo'] },
+            { name: 'styles', items: ['Styles', 'Format', 'FontSize'] }, // Tamaño y fuente
+            { name: 'colors', items: ['TextColor', 'BGColor'] }, // Color de texto y fondo
+            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat'] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Blockquote'] },
+            { name: 'insert', items: ['Table', 'HorizontalRule'] },
+            { name: 'links', items: ['Link', 'Unlink'] },
+            { name: 'tools', items: ['Maximize'] } // Maximizar
+        ],
+        extraPlugins: 'colorbutton,font', // Activa plugins para color y fuentes
+        removePlugins: 'elementspath', // Elimina la ruta de elementos
+        resize_enabled: true // Permite redimensionar el editor
+    });
+</script>
 
 </x-app-layout>

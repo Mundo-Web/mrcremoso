@@ -6,7 +6,7 @@
         @method('PUT')
         <div class="col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
             <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
-                <h2 class="font-semibold text-slate-800 dark:text-slate-100 text-2xl tracking-tight">Editar etiqueta: {{ $tags->name }}</h2>
+                <h2 class="font-semibold text-slate-800 dark:text-slate-100 text-2xl tracking-tight">Editar marca: {{ $tags->name }}</h2>
             </header>
           
             <div class="p-3">
@@ -44,7 +44,7 @@
 
                                             <div class="md:col-span-5 text-right mt-6 flex justify-between">
                                               <div class="inline-flex items-end">
-                                                <a href="{{ URL::previous() }}"  class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded">Volver</a>
+                                                <a href="{{ route('tags.index') }}"  class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded">Volver</a>
                                               </div>
                                                 <div class="inline-flex items-end">
                                                 <button type="submit"  class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Actualizar</button>

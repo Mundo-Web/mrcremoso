@@ -1,6 +1,6 @@
 <x-app-layout>
   @php
-    $title = 'Banner';
+    $title = 'aliado comercial';
   @endphp
 
   <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
@@ -45,7 +45,7 @@
                 </div>
               </div>
 
-              <div class="md:col-span-5">
+              {{-- <div class="md:col-span-5">
                 <label for="description">Descripcion de {{ $title }}</label>
                 <div class="relative mb-2 mt-2">
                   <div class="absolute inset-y-0 left-0 flex items-start top-3 pl-3 pointer-events-none ">
@@ -64,7 +64,7 @@
                     class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Descripción">{{ $banners->description }}</textarea>
                 </div>
-              </div>
+              </div> --}}
 
               {{-- <div class="md:col-span-3">
                 <label for="title_btn"></label>
@@ -94,7 +94,7 @@
 
 
 
-              <div class="md:col-span-5">
+              {{-- <div class="md:col-span-5">
                 <label for="url_btn">Redirección del banner</label>
                 <div class="relative mb-2  mt-2">
                   <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -113,7 +113,7 @@
                     class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Url para botón ">
                 </div>
-              </div>
+              </div> --}}
 
               {{-- <div class="md:col-span-1">
                 <label for="price">Precio </label>
@@ -136,24 +136,24 @@
                 </div>
               </div> --}}
 
-              <div class="md:col-span-5">
+              {{-- <div class="md:col-span-5">
                 <label for="potition">Posición </label>
                 <div class="relative mb-2  mt-2">
 
-                  {{-- <input type="text" id="potition" name="potition" value="{{ $banners->potition }}"
+                  <input type="text" id="potition" name="potition" value="{{ $banners->potition }}"
                     class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Posicion "> --}}
+                    placeholder="Posicion ">
                   <select
                     class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     name="potition" id="potition">
                     <option value="">Elige una Opcion</option>
-                    {{-- <option value="superior" @if ($banners->potition == 'top') selected @endif>Superior</option> --}}
+                    <option value="superior" @if ($banners->potition == 'top') selected @endif>Superior</option>
                     <option value="medio" @if ($banners->potition == 'medio') selected @endif>Medio</option>
                     <option value="inferior" @if ($banners->potition == 'inferior') selected @endif>Inferior</option>
 
                   </select>
                 </div>
-              </div>
+              </div> --}}
 
               {{-- <div class="md:col-span-2">
                 <label for="url_page">Url Pagina </label>
@@ -177,18 +177,18 @@
               </div> --}}
 
 
-              <div class="md:col-span-5">
+              {{-- <div class="md:col-span-5">
                 <label for="image">Subir una imagen (.png/.jpg) (Version Desktop)</label>
                 <div class="relative mb-2  mt-2">
                   <input name="image"
                     class="p-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                     aria-describedby="user_avatar_help" id="user_avatar" type="file">
                 </div>
-              </div>
+              </div> --}}
 
 
               <div class="md:col-span-5">
-                <label for="price">Subir una imagen (.png/.jpg) (Version Mobile)</label>
+                <label for="price">Subir una imagen (.png/.jpg)</label>
                 <div class="relative mb-2  mt-2">
                   <input name="price"
                     class="p-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"

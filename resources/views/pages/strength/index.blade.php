@@ -2,8 +2,8 @@
   <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
 
     <section class="py-4 border-b border-slate-100 dark:border-slate-700">
-      {{-- <a href="{{ route('strength.create') }}"
-        class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded text-sm">Agregar</a> --}}
+      <a href="{{ route('strength.create') }}"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded text-sm">Agregar</a>
     </section>
 
 
@@ -22,7 +22,7 @@
           <table id="tabladatos" class="display text-lg" style="width:100%">
             <thead>
               <tr>
-                <th>Orden</th>
+                <th>Cifra</th>
                 {{-- <th>Imagen</th> --}}
                 <th>Titulo </th>
                 <th>Descripcion</th> 
@@ -34,7 +34,7 @@
 
               @foreach ($strength as $item)
                 <tr>
-                  <td>{{$item->order}}</td>
+                  <td>{{$item->descripcionshort}}</td>
                   {{-- <td class="px-3 py-2"><img class="w-20 h-20 object-contain" src="{{ asset($item->imagen) }}" alt="" onerror="this.onerror=null;this.src='{{ asset('images/imagen/noimagen.jpg') }}';" ></td> --}}
                   <td>{{ Str::limit($item->titulo, 100) }}</td>
                   <td>{!! Str::limit($item->descripcion, 100) !!}</td>
@@ -60,12 +60,12 @@
                       class="bg-yellow-400 px-3 py-2 rounded text-white  "><i
                         class="fa-regular fa-pen-to-square"></i></a>
 
-                    {{-- <form action="" method="POST">
+                    <form action="" method="POST">
                       @csrf
                       <a data-idService='{{ $item->id }}'
                         class="btn_delete bg-red-600 px-3 py-2 rounded text-white cursor-pointer"><i
                           class="fa-regular fa-trash-can"></i></a>
-                    </form> --}}
+                    </form>
                   </td>
                 </tr>
               @endforeach
@@ -73,7 +73,7 @@
             </tbody>
             <tfoot>
               <tr>
-                <th>Orden</th>
+                <th>Cifra</th>
                 {{-- <th>Imagen</th> --}}
                 <th>Titulo </th>
                 <th>Descripcion</th> 
@@ -190,7 +190,7 @@
 
       Swal.fire({
         title: "Seguro que deseas eliminar?",
-        text: "Vas a eliminar un Logo",
+        text: "Vas a eliminar un registro",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
