@@ -27,7 +27,7 @@
         </div>
     </section>
 
-    <section class="px-[5%] pt-12 xl:pt-16 w-full">
+    <section class="px-[5%] py-12 xl:py-16 w-full">
         <div class="flex flex-col justify-start gap-12">
 
             <div class="flex flex-wrap gap-3 lg:gap-5 justify-center" data-aos="fade-up" data-aos-duration="150">

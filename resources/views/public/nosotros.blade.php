@@ -82,7 +82,7 @@
 
     <section class="flex flex-col gap-5 pt-12 xl:pt-16">
         <div class="grid grid-cols-1 xl:grid-cols-2 w-full gap-10 lg:gap-24 px-[5%] pb-12 xl:pb-16">
-            <div class="flex flex-col justify-center gap-5">
+            <div class="flex flex-col justify-center gap-5 order-2 xl:order-1">
               <h1
                     class="text-[#052F4E] font-galano_bold tracking-tighter text-3xl md:text-5xl leading-none">
                     {{$nosotros[2]->titulo ?? "Ingrese texto" }}
@@ -94,7 +94,7 @@
                
             </div>
 
-            <div class="flex flex-col justify-center items-center">
+            <div class="flex flex-col justify-center items-center order-1 xl:order-2">
 
                 <img src="{{ asset($nosotros[2]->imagen) }}" onerror="this.onerror=null;this.src='{{ asset('images/imagen/cremosonosotros2.png') }}';" />
             </div>
@@ -152,7 +152,7 @@
 
     <section class="flex flex-col gap-5 pt-12 xl:pt-16">
         <div class="grid grid-cols-1 xl:grid-cols-2 w-full gap-10 lg:gap-24 px-[5%] pb-12 xl:pb-16">
-            <div class="flex flex-col justify-center gap-5">
+            <div class="flex flex-col justify-center gap-5 order-2 xl:order-1">
               <h1
                     class="text-[#052F4E] font-galano_bold tracking-tighter text-3xl md:text-5xl leading-none">
                     {{$nosotros[4]->titulo ?? "Ingrese texto" }}
@@ -164,7 +164,7 @@
               
             </div>
 
-            <div class="flex flex-col justify-center items-center">
+            <div class="flex flex-col justify-center items-center order-1 xl:order-2">
 
                 <img src="{{ asset($nosotros[4]->imagen) }}" onerror="this.onerror=null;this.src='{{ asset('images/imagen/cremosonosotros2.png') }}';" />
             </div>
