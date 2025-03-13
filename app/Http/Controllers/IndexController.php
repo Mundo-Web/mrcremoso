@@ -87,7 +87,7 @@ class IndexController extends Controller
       ->where('categories.status', 1)
       ->where('products.status', '=', 1)
       ->where('products.visible', '=', 1)
-      ->where('products.recomendar', '=', 1)
+      ->where('products.destacar', '=', 1)
       ->orderBy('products.id', 'desc')
       ->take(8)
       ->get();

@@ -459,28 +459,28 @@
           )
         }
       },
-      // {
-      //   dataField: 'destacar',
-      //   caption: 'DESTACAR',
-      //   cellTemplate: (container, {
-      //     data
-      //   }) => {
-      //     container.html(`<form method="POST" action="">
-      //       @csrf
-      //       <input type="checkbox" id="hs-basic-usage"
-      //         class="check_v btn_swithc relative w-[3.25rem] h-7 p-px bg-gray-100 border-transparent text-transparent 
-      //               rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:ring-transparent disabled:opacity-50 disabled:pointer-events-none 
-      //               checked:bg-none checked:text-blue-600 checked:border-blue-600 focus:checked:border-blue-600 dark:bg-gray-800 dark:border-gray-700 
-      //               dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-600 before:inline-block before:size-6
-      //               before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:rounded-full before:shadow 
-      //               before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-blue-200"
-      //         id='d_${data.id}' data-field='destacar' data-idService='${data.id}'
-      //         data-titleService='${data.producto}' ${data.destacar ? 'checked': ''}>
-      //       <label for="d_${data.id}"></label>
-      //     </form>`)
-      //   }
-      // },
       {
+        dataField: 'destacar',
+        caption: 'DESTACAR',
+        cellTemplate: (container, {
+          data
+        }) => {
+          container.html(`<form method="POST" action="">
+            @csrf
+            <input type="checkbox" id="hs-basic-usage"
+              class="check_v btn_swithc relative w-[3.25rem] h-7 p-px bg-gray-100 border-transparent text-transparent 
+                    rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:ring-transparent disabled:opacity-50 disabled:pointer-events-none 
+                    checked:bg-none checked:text-blue-600 checked:border-blue-600 focus:checked:border-blue-600 dark:bg-gray-800 dark:border-gray-700 
+                    dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-600 before:inline-block before:size-6
+                    before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:rounded-full before:shadow 
+                    before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-blue-200"
+              id='d_${data.id}' data-field='destacar' data-idService='${data.id}'
+              data-titleService='${data.producto}' ${data.destacar ? 'checked': ''}>
+            <label for="d_${data.id}"></label>
+          </form>`)
+        }
+      },
+      /* {
         dataField: 'recomendar',
         caption: 'RECOMENDAR',
         cellTemplate: (container, {
@@ -500,7 +500,7 @@
             <label for="r_${data.id}"></label>
           </form>`)
         }
-      },
+      }, */
       {
         dataField: 'visible',
         caption: 'VISIBLE',
@@ -625,7 +625,7 @@
         status = 0;
       }
 
-      console.log(titleService)
+      console.log(`ID: ${id}, Status: ${status}, Field: ${field}, Title: ${titleService}`);
 
       $.ajax({
         url: "{{ route('products.updateVisible') }}",
@@ -635,20 +635,21 @@
           status: status,
           id: id,
           field: field,
-          titleService
+          titleService: titleService
         }
       }).done(function(res) {
-
+        console.log(res);
         Swal.fire({
           position: "top-end",
           icon: "success",
           title: titleService + " a sido modificado",
           showConfirmButton: false,
           timer: 1500
-
         });
 
-      })
+      }).fail(function(jqXHR, textStatus, errorThrown) {
+        console.error(`Error: ${textStatus}, ${errorThrown}`); // Verifica si hay errores en la solicitud
+      });
     });
 
     $(document).on("click", ".btn_delete", function(e) {
