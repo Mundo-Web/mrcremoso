@@ -12,7 +12,7 @@ class BlogSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('blog')->insert([
+        DB::table('blogs')->insert([
             [
                 'category_id' => 1,
                 'title' => '¿Sabían que Mr Cremoso esta revolucionando el Mercado Heladero?',
