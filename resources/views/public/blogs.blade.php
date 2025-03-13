@@ -91,7 +91,7 @@
         </div>
     </section>
 
-    <section>
+    {{-- <section>
         <div class="flex flex-col gap-10 lg:gap-14 w-full px-0 md:pl-[5%]  bg-[#EBEDEF] mt-10 md:mt-20">
 
             <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -123,7 +123,7 @@
             </div>
 
         </div>
-    </section>
+    </section> --}}
 
 @section('scripts_importados')
 

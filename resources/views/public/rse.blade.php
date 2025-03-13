@@ -4,42 +4,6 @@
 
 @stop
 
-<style>
-    #Aboutus .prose {
-        width: 100%;
-        max-width: 100%;
-        text-align: justify;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-    }
-
-    .prose p {
-
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-
-    }
-
-    @media (max-width: 600px) {
-        .fixedWhastapp {
-            right: 116px !important;
-        }
-    }
-
-    .swiper-testimonios .swiper-pagination-bullet {
-            width: 14px;
-            height: 8px;
-            border-radius: 6px;
-            background-color: #052F4E !important;
-        
-    }
-
-    .swiper-testimonios .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
-            background-color: #05304e56!important;
-            opacity: 1;
-    }
-</style>
-
 @section('content')
 
     <main>
@@ -81,44 +45,51 @@
         @if ($testimonie->isEmpty())
         @else
             <section>
-                <div class="flex flex-col gap-5 md:gap-10 w-full px-[5%] py-10 md:py-16  bg-[#EBEDEF]">
+                <div class="flex flex-col gap-5 md:gap-10 w-full px-[5%] py-10 md:py-20 bg-[#EBEDEF]">
                     <div class="grid grid-cols-1 xl:grid-cols-3 gap-12">
                         <div class="md:col-span-2">
                             <h2 class="text-[#052F4E] text-2xl font-galano_bold max-w-lg">
                                 {{$textoshome->subtitle9section ?? "Ingrese un texto"}}
                             </h2>
                             <div class="gap-6 py-6">
-                                <div class="swiper testimonios">
-                                    <div class="swiper-wrapper">
-                                        @foreach ($testimonie as $testimony)
+                                    <div class="swiper testimonios">
+                                        <div class="swiper-wrapper">
+                                            @foreach ($testimonie as $testimony)
                                             <div class="swiper-slide">
-                                                <div class="flex flex-col gap-2 p-3 bg-white rounded-xl line-clamp-5">
-                                                    <h2 class="text-[#052F4E] text-sm font-galano_regular">
-                                                        {{ $testimony->testimonie }}
-                                                    </h2>
-                                                    <h2 class="text-[#052F4E] text-lg font-galano_medium leading-none">
-                                                        {{ $testimony->name }}</h2>
-                                                </div>
+                                                <div class="flex flex-col gap-2 p-2 bg-white rounded-xl">
+                                                    @if ($testimony->video)
+                                                        <div class="w-full rounded-xl overflow-hidden video-container relative" controls>
+                                                            <div class="absolute top-0 left-0 size-full poster-container">
+                                                                <img class="w-full h-full object-cover size-full" src="https://i.ytimg.com/vi/{{ $testimony->video }}/hq720.jpg" onerror="this.onerror=null;this.src='{{ asset('images/img/noimagen.jpg') }}';"/>
+                                                            </div>
+                                                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 play-icon-container cursor-pointer group-hover:scale-110 transition-transform duration-300"><img src="{{ asset('images/imagen/iconoplay.png') }}"/></div>
+                                                            <iframe width="100%" height="250px" class="youtube-video rounded-xl overflow-hidden" src="https://www.youtube.com/embed/{{ $testimony->video }}"
+                                                                frameborder="0"
+                                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                                allowfullscreen></iframe>
+                                                        </div>
+                                                    @endif
+                                                </div>  
                                             </div>
-                                        @endforeach
+                                            @endforeach
+                                        </div>
+                                        <div class="swiper-testimonios !flex justify-center py-3 mt-3"></div>
                                     </div>
-                                    <div class="swiper-testimonios !flex justify-center py-3 mt-3"></div>
-                                </div>
                             </div>
-                          
+                            <a id="abrirgaleria" class="bg-[#052F4E] text-white px-6 py-2.5 rounded-xl font-galano_medium mt-2"> Ver más historias </a>
                         </div>
                         <div class="md:col-span-1 space-y-3">
                             <h2 class="text-[#052F4E] text-5xl font-galano_bold max-w-xl leading-none">
-                                {{$textoshome->title9section ?? "Ingrese un texto"}}
+                                    {{$textoshome->title9section ?? "Ingrese un texto"}}
                             </h2>
                             <div class="flex flex-row justify-start items-start">
-                                <a href="#"
+                                <a
                                     class="text-white py-3 px-6 bg-[#052F4E] rounded-xl text-base font-galano_light font-semibold text-left">
                                     {{$textoshome->one_description9section ?? "Ingrese un texto"}}   
                                 </a>
                             </div>
                             <h2 class="text-[#052F4E] text-lg font-galano_regular">
-                                {{$textoshome->two_description9section ?? "Ingrese un texto"}}   
+                                    {{$textoshome->two_description9section ?? "Ingrese un texto"}}   
                             </h2>
                         </div>
                     </div>
@@ -128,41 +99,105 @@
 
     </main>
 
-
+    <div id="modalgaleria" class="modal" style="max-width: 900px !important; width: 100% !important;  ">
+        <div class="p-4 flex flex-col gap-2">
+            <h1 class="font-galano_bold text-2xl lg:text-3xl text-center">Testimonios</h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                @foreach ($testimonie as $testimony)
+                    @if ($testimony->imagen)
+                        <img class="w-auto h-[300px] max-h-96 object-contain object-center mx-auto" src="{{$testimony->imagen}}"/>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    </div>
 
 
 @section('scripts_importados')
-
     <script>
+        $(document).on('click', '#abrirgaleria', function() {
+            $('#modalgaleria').modal({
+                show: true,
+                fadeDuration: 400,
+            })
+        })
+        
+        document.addEventListener('DOMContentLoaded', () => {
 
-         var swiper = new Swiper(".testimonios", {
-            slidesPerView: 2,
-            spaceBetween: 25,
-            loop: true,
-            grabCursor: true,
-            centeredSlides: false,
-            initialSlide: 0,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            pagination: {
-                el: ".swiper-testimonios",
-                clickable: true
-            },
+            const videoContainers = document.querySelectorAll('.video-container');
 
-            breakpoints: {
-                0: {
-                    slidesPerView: 1,
-                    spaceBetween: 25,
+            videoContainers.forEach(container => {
+                const playIcon = container.querySelector('.play-icon-container');
+                const poster = container.querySelector('.poster-container');
+                const iframe = container.querySelector('.youtube-video');
+                
+                playIcon.addEventListener('click', () => {
+
+                    pauseAllVideos();
+                    // Oculta el ícono y el póster
+                    playIcon.style.display = 'none';
+                    poster.style.display = 'none';
+
+                    // Agrega autoplay al iframe
+                    const src = iframe.getAttribute('src');
+                    iframe.setAttribute('src', src + (src.includes('?') ? '&autoplay=1' : '?autoplay=1'));
+                });
+            });
+
+            var swiper = new Swiper(".testimonios", {
+                slidesPerView: 2,
+                spaceBetween: 25,
+                loop: true,
+                grabCursor: true,
+                centeredSlides: false,
+                initialSlide: 0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
                 },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 25,
-                }
-            },
-        });
+                pagination: {
+                    el: ".swiper-testimonios",
+                    clickable: true
+                },
 
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 25,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 25,
+                    }
+                },
+                on: {
+                        slideChange: function () {
+                            pauseAllVideos();
+                        },
+                }
+            });
+
+            function pauseAllVideos() {
+                videoContainers.forEach(container => {
+                    const playIcon = container.querySelector('.play-icon-container');
+                    const poster = container.querySelector('.poster-container');
+                    const iframe = container.querySelector('.youtube-video');
+
+                    // Reiniciar iframe src para pausar video
+                    const src = iframe.getAttribute('src');
+                    iframe.setAttribute('src', src.replace(/&?autoplay=1/, ''));
+
+                    // Restaurar ícono y póster
+                    playIcon.style.display = 'flex';
+                    poster.style.display = 'block';
+                
+                });
+            }
+
+            
+        });
+    </script>
+    <script>
 
         function calcularTotal() {
             let articulos = Local.get('carrito')
