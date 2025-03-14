@@ -1427,7 +1427,7 @@ class IndexController extends Controller
   { 
 
     try {
-      $categorias = Category::where('status', '=', 1)->where('visible', '=', 1)->whereHas('blogs') ->get();
+      $categorias = Category::where('status', '=', 1)->where('visible', '=', 1)->whereHas('blogs')->get();
       $textoshome = HomeView::where('id', 1)->first();
       
       if ($filtro == 0) {

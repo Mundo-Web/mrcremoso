@@ -386,7 +386,7 @@
     
     @if ($testimonie->isEmpty())
     @else
-        <section>
+        <section id="clientes">
             <div class="flex flex-col gap-5 md:gap-10 w-full px-[5%] py-10 md:py-20 bg-[#EBEDEF]">
                 <div class="grid grid-cols-1 xl:grid-cols-3 gap-12">
                     <div class="md:col-span-2">
