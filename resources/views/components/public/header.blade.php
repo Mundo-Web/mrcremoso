@@ -61,7 +61,7 @@
 <header class="sticky top-0 z-[25]">
     <div class="left-0 right-0">
 
-        <div class=" bg-[#052F4E] z-[1000] relative font-galano_medium text-sm">
+        {{-- <div class=" bg-[#052F4E] z-[1000] relative font-galano_medium text-sm">
             <div class="flex flex-wrap justify-between items-center py-3 w-11/12 mx-auto text-white text-sm">
 
                 @if ($datosgenerales[0]->aboutus)
@@ -83,7 +83,7 @@
                 @endif
 
             </div>
-        </div>
+        </div> --}}
 
         <div class="flex justify-between w-full px-[5%] bg-[#f2f5f7]">
             <nav class="flex h-[70px] items-center justify-between gap-10 w-full">
