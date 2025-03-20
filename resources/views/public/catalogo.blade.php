@@ -229,11 +229,11 @@
                                             <a class="" href="${productoUrl}">  
                                                 <h2 class="font-galano_regular font-semibold text-[#052F4E] leading-5 text-base md:text-lg line-clamp-2">${value.producto}</h2>
                                             </a>
-                                            <div class="font-galano_regular text-[#052F4E] text-xs line-clamp-2 leading-3 hidden md:flex">
+                                            <div class="font-galano_regular text-[#052F4E] text-xs !line-clamp-2 leading-3 hidden md:flex">
                                                 ${value.description}
                                             </div>  
                                         </div>
-                                        <div class="hidden md:flex md:flex-row lg:flex-col lg:justify-start items-center gap-2 lg:gap-0 lg:items-end w-full lg:w-1/3">
+                                        <div class="hidden md:flex  md:flex-col lg:justify-start items-center gap-2 lg:gap-0 md:items-end w-full md:w-1/3">
                                             ${value.descuento == 0 ? `
                                                 <p class="font-galano_regular font-bold text-lg text-[#052F4E] text-start lg:text-end">S/ ${value.precio}</p>
                                             ` : `
@@ -306,11 +306,11 @@
                                             <a class="" href="${productoUrl}">  
                                                 <h2 class="font-galano_regular font-semibold text-[#052F4E] leading-5 text-base md:text-lg line-clamp-2">${value.producto}</h2>
                                             </a>
-                                            <div class="font-galano_regular text-[#052F4E] text-xs line-clamp-2 leading-3 hidden md:flex">
+                                            <div class="font-galano_regular text-[#052F4E] text-xs !line-clamp-2 leading-3 hidden md:flex">
                                                 ${value.description}
                                             </div>  
                                         </div>
-                                        <div class="hidden md:flex md:flex-row lg:flex-col lg:justify-start items-center gap-2 lg:gap-0 lg:items-end w-full lg:w-1/3">
+                                        <div class="hidden md:flex  md:flex-col lg:justify-start items-center gap-2 lg:gap-0 md:items-end w-full md:w-1/3 ">
                                             ${value.descuento == 0 ? `
                                                 <p class="font-galano_regular font-bold text-lg text-[#052F4E] text-start lg:text-end">S/ ${value.precio}</p>
                                             ` : `
