@@ -229,7 +229,7 @@
                                             <a class="" href="${productoUrl}">  
                                                 <h2 class="font-galano_regular font-semibold text-[#052F4E] leading-5 text-base md:text-lg line-clamp-2">${value.producto}</h2>
                                             </a>
-                                            <div class="font-galano_regular text-[#052F4E] text-xs !line-clamp-2 leading-3 hidden md:flex">
+                                            <div class="font-galano_regular text-[#052F4E] text-xs md:!line-clamp-2 leading-3 hidden md:flex">
                                                 ${value.description}
                                             </div>  
                                         </div>
@@ -306,7 +306,7 @@
                                             <a class="" href="${productoUrl}">  
                                                 <h2 class="font-galano_regular font-semibold text-[#052F4E] leading-5 text-base md:text-lg line-clamp-2">${value.producto}</h2>
                                             </a>
-                                            <div class="font-galano_regular text-[#052F4E] text-xs !line-clamp-2 leading-3 hidden md:flex">
+                                            <div class="font-galano_regular text-[#052F4E] text-xs md:!line-clamp-2 leading-3 hidden md:flex">
                                                 ${value.description}
                                             </div>  
                                         </div>
