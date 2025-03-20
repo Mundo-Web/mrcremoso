@@ -38,7 +38,7 @@
   @endcomponent --}}
 
   <section>
-      <div class="flex flex-col gap-10 w-full px-[5%] pt-10 ">
+      <div class="flex flex-col @if ($id_cat == 0) gap-10 @endif  w-full px-[5%] pt-10 ">
           <div class="flex flex-col xl:flex-row xl:justify-between items-start xl:items-center gap-5">
             @if ($id_cat == 0)
                 <div class="flex flex-col gap-2 max-w-4xl">
