@@ -38,14 +38,16 @@
   @endcomponent --}}
 
   <section>
-      <div class="flex flex-col gap-10 w-full px-[5%] pt-10 md:pt-20">
+      <div class="flex flex-col gap-10 w-full px-[5%] pt-10 ">
           <div class="flex flex-col xl:flex-row xl:justify-between items-start xl:items-center gap-5">
-              <div class="flex flex-col gap-2 max-w-4xl">
-                  <h4 class="font-galano_bold text-text32 md:text-text40 text-[#082252] leading-none">{{$textoshome->title2section ?? "Ingrese un texto"}}</h4>
-                  <h3 class="text-[#082252] font-galano_regular font-normal text-lg hidden sm:flex">
+            @if ($id_cat == 0)
+                <div class="flex flex-col gap-2 max-w-4xl">
+                    <h4 class="font-galano_bold text-text32 md:text-text40 text-[#082252] leading-none">{{$textoshome->title2section ?? "Ingrese un texto"}}</h4>
+                    <h3 class="text-[#082252] font-galano_regular font-normal text-lg hidden sm:flex">
                     {{$textoshome->description2section ?? "Ingrese un texto"}}
-                  </h3>
-              </div>
+                    </h3>
+                </div>
+            @endif  
           </div>    
           <div class="w-full relative max-w-7xl mx-auto">  
               <div class="swiper categorias h-max">
@@ -53,13 +55,13 @@
                       @foreach ($categories as $categorie)  
                           <div class="swiper-slide group">
                             <a id="{{ $categorie->id }}" class="categoryselect">
-                              <div id="{{ $categorie->id }}" class="{{ $id_cat == $categorie->id ? 'selected' : '' }} select flex flex-col justify-center px-10 py-8 relative bg-[#EBEDEF] rounded-xl min-h-[210px] max-w-[300px] mx-auto transition-all duration-300 ease-in-out group-hover:bg-[#052F4E]">  
+                              <div id="{{ $categorie->id }}" class="{{ $id_cat == $categorie->id ? 'selected' : '' }} select flex flex-col justify-center px-3 sm:px-10 py-4 sm:py-8 relative bg-[#EBEDEF] rounded-xl min-h-[170px] sm:min-h-[210px] max-w-[300px] mx-auto transition-all duration-300 ease-in-out group-hover:bg-[#052F4E]">  
                                   <div class="flex flex-row w-full bottom-5">
                                       <div class="flex flex-col gap-4 justify-center items-center w-full">
                                           <img class="group-hover:stroke-white group-hover:brightness-0 group-hover:invert {{ $id_cat == $categorie->id ? 'stroke-white invert brightness-0' : '' }}" src="{{ asset($categorie->url_image . $categorie->name_image) }}"
                                           onerror="this.onerror=null;this.src='{{ asset('images/svg/heladoicono.svg') }}';" class="w-full h-full object-contain md:object-cover object-right md:object-center">
 
-                                          <h2 class="{{ $id_cat == $categorie->id ? 'text-white' : '' }} text-[#052F4E] font-galano_semibold text-lg 2xl:text-2xl leading-tight text-center max-w-[200px] mx-auto line-clamp-2 transition-all duration-300 ease-in-out group-hover:text-white">
+                                          <h2 class="{{ $id_cat == $categorie->id ? 'text-white' : '' }} text-[#052F4E] font-galano_medium md:font-galano_semibold text-sm md:text-lg 2xl:text-2xl leading-tight text-center max-w-[200px] mx-auto line-clamp-2 transition-all duration-300 ease-in-out group-hover:text-white">
                                               {{$categorie->name ?? "Nombre de categoria"}}
                                           </h2>
                                       </div>
@@ -141,11 +143,11 @@
 
             breakpoints: {
                 0: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
                     spaceBetween: 20,
                 },
                 650: {
-                    slidesPerView: 2,
+                    slidesPerView: 3,
                     spaceBetween: 20,
                 },
                 1024: {
