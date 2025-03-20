@@ -93,9 +93,10 @@ class AppServiceProvider extends ServiceProvider
             $blog = Blog::where('status', '=', 1)->where('visible', '=', 1)->get(); // Suponiendo que tienes un modelo Footer y un método footerData() en él
             $categoriasMenu = Category::where('visible', '=', 1)->where('is_menu', 1)->get();
 
-            $categorias = Category::where("status", "=", true)->where('is_menu', 1)->with(['subcategories' => function ($query) {
+            $categorias = Category::where("status", "=", true)->where('visible',1)->with(['subcategories' => function ($query) {
                 $query->whereHas('products');
             }])->get();
+            
 
             $marcas = ClientLogos::where('status', true)->where('visible', true)->get();
                  

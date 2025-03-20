@@ -42,7 +42,7 @@
           <div class="flex flex-col xl:flex-row xl:justify-between items-start xl:items-center gap-5">
               <div class="flex flex-col gap-2 max-w-4xl">
                   <h4 class="font-galano_bold text-text32 md:text-text40 text-[#082252] leading-none">{{$textoshome->title2section ?? "Ingrese un texto"}}</h4>
-                  <h3 class="text-[#082252] font-galano_regular font-normal text-lg">
+                  <h3 class="text-[#082252] font-galano_regular font-normal text-lg hidden sm:flex">
                     {{$textoshome->description2section ?? "Ingrese un texto"}}
                   </h3>
               </div>
@@ -59,7 +59,7 @@
                                           <img class="group-hover:stroke-white group-hover:brightness-0 group-hover:invert {{ $id_cat == $categorie->id ? 'stroke-white invert brightness-0' : '' }}" src="{{ asset($categorie->url_image . $categorie->name_image) }}"
                                           onerror="this.onerror=null;this.src='{{ asset('images/svg/heladoicono.svg') }}';" class="w-full h-full object-contain md:object-cover object-right md:object-center">
 
-                                          <h2 class="{{ $id_cat == $categorie->id ? 'text-white' : '' }} text-[#052F4E] font-galano_semibold text-xl text-center max-w-[200px] mx-auto line-clamp-2 transition-all duration-300 ease-in-out group-hover:text-white">
+                                          <h2 class="{{ $id_cat == $categorie->id ? 'text-white' : '' }} text-[#052F4E] font-galano_semibold text-lg 2xl:text-2xl leading-tight text-center max-w-[200px] mx-auto line-clamp-2 transition-all duration-300 ease-in-out group-hover:text-white">
                                               {{$categorie->name ?? "Nombre de categoria"}}
                                           </h2>
                                       </div>

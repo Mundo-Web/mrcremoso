@@ -153,7 +153,7 @@
                                                     onerror="this.onerror=null;this.src='{{ asset('images/svg/heladoicono.svg') }}';" alt="producto"
                                                     class="w-full h-full object-contain md:object-cover object-right md:object-center">
 
-                                                    <h2 class="text-[#052F4E] font-galano_semibold text-2xl text-center max-w-[200px] mx-auto line-clamp-2 transition-all duration-300 ease-in-out group-hover:text-white">
+                                                    <h2 class="text-[#052F4E] font-galano_semibold text-lg 2xl:text-2xl leading-tight  text-center max-w-[200px] mx-auto line-clamp-2 transition-all duration-300 ease-in-out group-hover:text-white">
                                                         {{$categoria->name ?? "Nombre de categoria"}}
                                                     </h2>
                                                 </div>

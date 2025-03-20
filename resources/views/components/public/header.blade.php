@@ -86,7 +86,7 @@
         </div> --}}
 
         <div class="flex justify-between w-full px-[5%] bg-[#f2f5f7]">
-            <nav class="flex h-[70px] items-center justify-between gap-10 w-full">
+            <nav class="flex h-[70px] items-center justify-between gap-10 w-full" x-data="{ openCatalogo: true, openSubMenu: null, openServicios:false }">
                 <input type="checkbox" id="menu" class="peer/menu menu hidden" />
                 <label for="menu"
                     class="transition-all flex flex-col gap-1 z-40 lg:hidden hamburguesa justify-center items-center order-3 lg:order-3">
@@ -103,10 +103,10 @@
 
 
                 <ul
-                    class="font-galano_medium text-lg text-[#052F4E] pt-20 fixed inset-0 bg-[#f2f5f7] px-[5%] flex flex-col lg:flex-row lg:items-center clip-circle-0 peer-checked/menu:clip-circle-full transition-[clip-path] duration-500 gap-5 lg:gap-10 lg:clip-circle-full lg:relative lg:flex lg:justify-items-center lg:p-0 lg:bg-transparent flex-1">
+                    class=" font-galano_medium text-lg text-[#052F4E] pt-20 fixed inset-0 bg-[#f2f5f7] px-[5%] flex flex-col lg:flex-row lg:items-center clip-circle-0 peer-checked/menu:clip-circle-full transition-[clip-path] duration-500 gap-5 lg:gap-10 lg:clip-circle-full lg:relative lg:flex lg:justify-items-center lg:p-0 lg:bg-transparent flex-1">
 
                     <div
-                        class="flex flex-col lg:flex-row order-2 lg:order-1 lg:w-[80%] lg:justify-center gap-5 lg:gap-6">
+                        class="flex flex-col lg:flex-row order-2 lg:order-1 lg:w-[80%] lg:justify-center gap-3 lg:gap-6">
 
                         <li class="flex flex-col">
                             <a href="{{ route('index') }}"
@@ -128,7 +128,7 @@
                             @endif
                         </li>
 
-                        <li class="flex flex-col">
+                        <li class="lg:flex flex-col hidden">
                             <a href="{{ route('catalogo.all') }}"
                                 class="{{ isset($pagina) && $pagina == 'catalogo.all' ? 'font-semibold' : '' }}">Productos</a>
                             @if (isset($pagina) && $pagina == 'catalogo.all')
@@ -138,9 +138,37 @@
                             @endif
                         </li>
 
+                        <li class="flex lg:hidden flex-col ">
+                            <a @click="openCatalogo = !openCatalogo; openServicios = false" href="javascript:void(0)"
+                                class="flex flex-row justify-between {{ isset($pagina) && $pagina == 'catalogo.all' ? 'font-semibold' : '' }}">Productos
+                                <span :class="{ 'rotate-180': openCatalogo }"
+                                class="ms-1 inline-block transform transition-transform duration-300"><i class="fa-solid fa-chevron-down"></i></span>
+                            </a>
+                            <ul x-show="openCatalogo" x-transition class="ml-3 mt-1 space-y-1 border-l border-gray-300 overflow-y-scroll h-40">
+                                <li>
+                                    <a href="{{ route('catalogo.all') }}"
+                                        class="text-[#052f4e] flex items-center text-base hover:opacity-80 py-0 px-3">
+                                        <span>
+                                            Todas las categorías
+                                        </span>
+                                    </a>
+
+                                    @if (count($categorias) > 0)
+                                        <div x-data="{ openCategories: {} }">
+                                            @foreach ($categorias as $item)
+                                                <a href="{{ route('catalogo', $item->id) }}" class="text-[#052f4e] flex text-base items-center hover:opacity-80 py-0 px-3 ">
+                                                    <span>{{ $item->name }}</span>
+                                                </a>
+                                            @endforeach
+                                        </div>
+                                    @endif
+                                </li>
+                            </ul>
+                        </li>
+
 
                         @if (count($services) > 0)
-                            <li class="flex flex-col">
+                            <li class="lg:flex flex-col hidden">
                                 <a href="{{ route('servicios', $services->first()->id) }}"
                                     class="{{ isset($pagina) && $pagina == 'servicios' ? 'font-semibold' : '' }}">Servicios</a>
                                 @if (isset($pagina) && $pagina == 'servicios')
@@ -148,6 +176,32 @@
                                         class="hidden lg:block lg:after:content-[''] lg:after:w-full lg:after:h-[2px] lg:after:bg-[#052f4e] lg:after:block">
                                     </p>
                                 @endif
+                            </li>
+                        @endif
+
+
+                        @if (count($services) > 0)
+                            <li class="flex lg:hidden flex-col">
+                                <a @click="openServicios = !openServicios; openCatalogo = false" href="javascript:void(0)"
+                                    href="{{ route('servicios', $services->first()->id) }}"
+                                    class="flex flex-row justify-between {{ isset($pagina) && $pagina == 'servicios' ? 'font-semibold' : '' }}">
+                                    Servicios
+                                    <span :class="{ 'rotate-180': openServicios }"
+                                    class="ms-1 inline-block transform transition-transform duration-300"><i class="fa-solid fa-chevron-down"></i></span>
+                                </a>
+                                <ul x-show="openServicios" x-transition class="ml-3 mt-1 space-y-1 border-l border-gray-300 overflow-y-scroll h-40">
+                                    <li>
+                                        @if (count($services) > 0)
+                                            <div x-data="{ openServicios: {} }">
+                                                @foreach ($services as $item)
+                                                    <a href="{{ route('servicios', $item->id) }}" class="text-[#052f4e] flex text-base items-center hover:opacity-80 py-0 px-3 ">
+                                                        <span>{{ $item->title }}</span>
+                                                    </a>
+                                                @endforeach
+                                            </div>
+                                        @endif
+                                    </li>
+                                </ul>
                             </li>
                         @endif
                         
