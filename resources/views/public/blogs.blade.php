@@ -21,11 +21,11 @@
                 class="text-[#052F4E] font-maille text-4xl md:text-5xl leading-none text-left lg:text-center max-w-2xl mx-auto">
                 {{$textoshome->title10section ?? "Ingrese un texto"}}
             </h2>
-            @if ($textoshome->description10section)
+            {{-- @if ($textoshome->description10section)
                 <p class="text-[#052F4E] font-galano_regular text-lg text-left lg:text-center">
                     {{$textoshome->description10section}}
                 </p>
-            @endif
+            @endif --}}
            
         </div>
     </section>
