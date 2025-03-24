@@ -124,7 +124,7 @@
                 <div class="flex flex-col xl:flex-row xl:justify-between items-start xl:items-center gap-5">
                     <div class="flex flex-col gap-2 max-w-4xl">
                         <h4 class="font-galano_bold text-text32 md:text-text40 text-[#082252] leading-none">{{$textoshome->title1section ?? "Ingrese un texto"}}</h4>
-                        <h3 class="text-[#082252] font-galano_regular font-normal text-lg">
+                        <h3 class="text-[#082252] font-galano_regular font-normal text-lg hidden sm:flex">
                             {{$textoshome->description1section ?? "Ingrese un texto"}}
                         </h3>
                     </div>
@@ -136,15 +136,15 @@
                     </div>
                 </div>
                
-                <div class="w-full relative">  
+                <div class="w-full relative max-w-7xl mx-auto">  
                     <div class="swiper categorias h-max ">
                         <div class="swiper-wrapper">
                             @foreach ($categorias as $categoria)  
                                 <div class="swiper-slide group">
-                                    <div class="flex flex-col justify-center px-10 py-8 relative bg-[#EBEDEF] rounded-xl min-h-[210px] max-w-[300px] mx-auto transition-all duration-300 ease-in-out group-hover:bg-[#052F4E]">  
+                                    <div class="flex flex-col justify-center px-3 sm:px-10 py-4 sm:py-8 relative bg-[#EBEDEF] rounded-xl min-h-[170px] sm:min-h-[210px] max-w-[300px] mx-auto transition-all duration-300 ease-in-out group-hover:bg-[#052F4E]">  
                                         <a href="{{ route('catalogo', $categoria->id ) }}">   
                                             <div class="flex flex-row w-full bottom-5">
-                                                <div class="flex flex-col gap-4 justify-center items-center w-full">
+                                                <div class="flex flex-col  justify-center items-center w-full">
                                                     {{-- <svg class="transition-all duration-300 ease-in-out " xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 65 65" fill="none">
                                                         <path class="group-hover:stroke-white" d="M20.5 32.6582L22.7051 39.8467C26.6886 52.8321 28.6803 59.3249 32.5 59.3249C36.3197 59.3249 38.3115 52.8321 42.2949 39.8467L44.5 32.6582" stroke="#052F4E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                                                         <path class="group-hover:stroke-white" d="M32.5026 23.7719C32.5026 25.3633 32.9418 26.857 33.7109 28.1491M33.7109 28.1491C31.7487 30.8736 28.4559 32.6608 24.7248 32.6608C18.7111 32.6608 13.8359 28.0179 13.8359 22.2904C13.8359 17.2682 17.5846 13.0797 22.5624 12.1245C24.2644 8.51105 28.0749 5.99414 32.5026 5.99414C38.0277 5.99414 42.5914 9.91299 43.297 14.9913M33.7109 28.1491C35.3143 30.8429 38.3522 32.6608 41.8359 32.6608C46.9906 32.6608 51.1693 28.6811 51.1693 23.7719C51.1693 19.3361 47.7575 15.6591 43.297 14.9913M43.297 14.9913C43.3594 15.4406 43.3914 15.899 43.3914 16.3645C43.3914 17.955 43.0154 19.4619 42.3437 20.809" stroke="#052F4E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -153,7 +153,7 @@
                                                     onerror="this.onerror=null;this.src='{{ asset('images/svg/heladoicono.svg') }}';" alt="producto"
                                                     class="w-full h-full object-contain md:object-cover object-right md:object-center">
 
-                                                    <h2 class="text-[#052F4E] font-galano_semibold text-lg 2xl:text-2xl leading-tight  text-center max-w-[200px] mx-auto line-clamp-2 transition-all duration-300 ease-in-out group-hover:text-white">
+                                                    <h2 class="text-[#052F4E] font-galano_medium md:font-galano_semibold text-sm md:text-lg 2xl:text-2xl leading-tight  text-center max-w-[200px] mx-auto line-clamp-2 transition-all duration-300 ease-in-out group-hover:text-white">
                                                         {{$categoria->name ?? "Nombre de categoria"}}
                                                     </h2>
                                                 </div>
@@ -179,7 +179,7 @@
                 <div class="flex flex-col xl:flex-row xl:justify-between items-start xl:items-center gap-5">
                     <div class="flex flex-col gap-2 max-w-4xl">
                         <h4 class="font-galano_bold text-text32 md:text-text40 text-[#082252] leading-none">{{$textoshome->title2section ?? "Ingrese un texto"}}</h4>
-                        <h3 class="text-[#082252] font-galano_regular font-normal text-lg">
+                        <h3 class="text-[#082252] font-galano_regular font-normal text-lg hidden sm:flex">
                             {{$textoshome->description2section ?? "Ingrese un texto"}}
                         </h3>
                     </div>
@@ -279,9 +279,6 @@
                     <h2 class="text-[#052F4E] font-galano_bold text-4xl md:text-text44 leading-none text-left lg:text-center">
                         {{$textoshome->title10section ?? "Ingrese un texto"}}
                     </h2>
-                    <p class="text-[#052F4E] font-galano_regular text-lg text-left lg:text-center">
-                        {{$textoshome->description10section ?? "Ingrese un texto"}}
-                    </p>
                     <div class="flex flex-row justify-start md:justify-center items-start mt-3 lg:mt-6">
                         <a href="{{route('blog', 0)}}"
                             class="text-white py-3 px-6 bg-[#052F4E] rounded-xl font-galano_semibold text-center">
@@ -670,11 +667,11 @@
 
             breakpoints: {
                 0: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
                     spaceBetween: 20,
                 },
                 650: {
-                    slidesPerView: 2,
+                    slidesPerView: 3,
                     spaceBetween: 20,
                 },
                 1024: {

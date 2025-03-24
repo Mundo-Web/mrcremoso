@@ -33,7 +33,7 @@
                 @else
                     <div class="w-full mt-5" data-aos="fade-up" data-aos-offset="150">
                         <img src="{{ asset($post->url_image . $post->name_image) }}" alt="catedral"
-                            class="w-full max-w-lg mx-auto h-auto object-cover hidden md:block rounded-xl" onerror="this.onerror=null;this.src='{{ asset('images/imagen/noimagen.jpg') }}';" />
+                            class="w-full max-w-5xl h-[450px] mx-auto  object-cover hidden md:block rounded-xl" onerror="this.onerror=null;this.src='{{ asset('images/imagen/noimagen.jpg') }}';" />
                         <img src="{{ asset($post->url_image . $post->name_image) }}" alt="catedral"
                             class="w-full h-[363px] object-cover block md:hidden rounded-xl" onerror="this.onerror=null;this.src='{{ asset('images/imagen/noimagen.jpg') }}';" />
                     </div>
