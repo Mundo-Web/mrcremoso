@@ -128,13 +128,32 @@
                             @endif
                         </li>
 
-                        <li class="lg:flex flex-col hidden">
-                            <a href="{{ route('catalogo.all') }}"
-                                class="{{ isset($pagina) && $pagina == 'catalogo.all' ? 'font-semibold' : '' }}">Productos</a>
+                        <li class="lg:flex flex-col hidden group relative">
+                            <div class="flex items-center">
+                                <a href="{{ route('catalogo.all') }}"
+                                    class="{{ isset($pagina) && $pagina == 'catalogo.all' ? 'font-semibold' : '' }}">
+                                    Productos
+                                </a>
+                                @if(count($categorias) > 0)
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 mt-1 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                @endif
+                            </div>
                             @if (isset($pagina) && $pagina == 'catalogo.all')
                                 <p
                                     class="hidden lg:block lg:after:content-[''] lg:after:w-full lg:after:h-[2px] lg:after:bg-[#052f4e] lg:after:block">
                                 </p>
+                            @endif
+                            @if (count($categorias) > 0)
+                                <div class="absolute top-full left-0 w-80 text-sm bg-white shadow-lg rounded-md py-2 hidden group-hover:block z-20">
+                                    @foreach ($categorias as $item)
+                                        <a href="{{ route('catalogo', $item->id) }}" 
+                                        class="block px-4 py-2 text-[#052f4e] hover:bg-gray-100 transition-colors">
+                                            {{ $item->name }}
+                                        </a>
+                                    @endforeach
+                                </div>
                             @endif
                         </li>
 
@@ -168,15 +187,35 @@
 
 
                         @if (count($services) > 0)
-                            <li class="lg:flex flex-col hidden">
-                                <a href="{{ route('servicios', $services->first()->id) }}"
-                                    class="{{ isset($pagina) && $pagina == 'servicios' ? 'font-semibold' : '' }}">Servicios</a>
-                                @if (isset($pagina) && $pagina == 'servicios')
-                                    <p
-                                        class="hidden lg:block lg:after:content-[''] lg:after:w-full lg:after:h-[2px] lg:after:bg-[#052f4e] lg:after:block">
-                                    </p>
-                                @endif
-                            </li>
+                                <li class="lg:flex flex-col hidden group relative">
+                                    <div class="flex items-center">
+                                        <a href="{{ route('servicios', $services->first()->id) }}"
+                                            class="{{ isset($pagina) && $pagina == 'servicios' ? 'font-semibold' : '' }}">
+                                            Servicios
+                                        </a>
+                                        @if(count($services) > 0)
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 mt-1 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        @endif
+                                    </div>
+                                
+                                    @if (isset($pagina) && $pagina == 'servicios')
+                                        <p
+                                            class="hidden lg:block lg:after:content-[''] lg:after:w-full lg:after:h-[2px] lg:after:bg-[#052f4e] lg:after:block">
+                                        </p>
+                                    @endif
+                                    @if (count($services) > 0)
+                                        <div class="absolute top-full left-0 w-80 text-sm bg-white shadow-lg rounded-md py-2 hidden group-hover:block z-20">
+                                            @foreach ($services as $service)
+                                                <a href="{{ route('servicios', $service->id) }}" 
+                                                class="block px-4 py-2 text-[#052f4e] hover:bg-gray-100 transition-colors">
+                                                    {{ $service->title }}
+                                                </a>
+                                            @endforeach
+                                        </div>
+                                    @endif
+                                </li>
                         @endif
 
 
